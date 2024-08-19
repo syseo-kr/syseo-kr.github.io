@@ -508,21 +508,6 @@ document.addEventListener('scroll', function () {
     }
 });
 
-
-    window.addEventListener('load', function () {
-        const targetArea = 90000; // 원하는 면적 (width * height)
-        const images = document.querySelectorAll('.gallery-item img');
-
-        images.forEach(img => {
-            const aspectRatio = img.naturalWidth / img.naturalHeight;
-            const newHeight = Math.sqrt(targetArea / aspectRatio);
-            const newWidth = aspectRatio * newHeight;
-
-            img.style.width = `${newWidth}px`;
-            img.style.height = `${newHeight}px`;
-        });
-    });
-
         
 
     </script>
