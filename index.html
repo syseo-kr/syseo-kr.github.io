@@ -240,33 +240,32 @@
             opacity: 1;
         }
 
-/* Hover 시 오버레이와 텍스트가 보이도록 설정 */
-.gallery-item .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 70%; /* 왼쪽 절반만 차지하도록 설정 */
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* 반투명 검정 오버레이 */
-    display: flex;
-    justify-content: flex-start; /* 텍스트가 왼쪽에 오도록 설정 */
-    align-items: center; /* 텍스트가 세로 중앙에 오도록 설정 */
-    opacity: 0;
-    transition: opacity 0.5s ease; /* 페이드 효과 추가 */
-    z-index: 3; /* 페이드 패널보다 위에 오도록 설정 */
-}
+        /* Hover 시 오버레이와 텍스트가 보이도록 설정 */
+        .gallery-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%; /* 왼쪽 절반만 차지하도록 설정 */
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* 반투명 검정 오버레이 */
+            display: flex;
+            justify-content: flex-start; /* 텍스트가 왼쪽에 오도록 설정 */
+            align-items: center; /* 텍스트가 세로 중앙에 오도록 설정 */
+            opacity: 0;
+            transition: opacity 0.5s ease; /* 페이드 효과 추가 */
+            z-index: 3; /* 페이드 패널보다 위에 오도록 설정 */
+        }
 
-.gallery-item:hover .overlay {
-    opacity: 1; /* Hover 시 오버레이가 보이도록 설정 */
-}
+        .gallery-item:hover .overlay {
+            opacity: 1; /* Hover 시 오버레이가 보이도록 설정 */
+        }
 
-.gallery-item .overlay .text {
-    color: white;
-    font-size: 1.5em;
-    text-align: left; /* 텍스트 왼쪽 정렬 */
-    padding-left: 20px; /* 텍스트가 너무 왼쪽에 붙지 않도록 패딩 추가 */
-}
-
+        .gallery-item .overlay .text {
+            color: white;
+            font-size: 1.5em;
+            text-align: left; /* 텍스트 왼쪽 정렬 */
+            padding-left: 20px; /* 텍스트가 너무 왼쪽에 붙지 않도록 패딩 추가 */
+        }
     </style>
 </head>
 <body>
