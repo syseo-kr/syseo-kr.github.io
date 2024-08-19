@@ -160,6 +160,7 @@
 
         /* Gallery 섹션 */
         .gallery-section {
+            display: flex;
             margin-left: auto;
             margin-right: 15vw; /* 메뉴 바 너비만큼 오른쪽 여백 추가 */
             width: calc(100% - 15vw); /* 화면의 85%에서 수직 메뉴 바 너비를 뺀 크기 */
@@ -178,12 +179,23 @@
             transform: translateY(0); /* 스크롤 시 섹션이 위로 이동하며 보임 */
         }
 
+        /* 연혁 영역 (왼쪽 바) */
+        .timeline-sidebar {
+            width: 30%;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 20px;
+        }
+
         /* Gallery 컨테이너 */
         .gallery-container {
+            width: 70%;
             display: flex;
             flex-direction: column;
             margin: 0 auto; /* 가운데 정렬 */
-            padding: 40px 0; /* 위아래 여백 */
+            padding: 0 20px; /* 좌우 여백 */
         }
 
         .timeline-item {
@@ -193,7 +205,7 @@
         }
 
         .timeline-date {
-            width: 30%;
+            width: 100%;
             background-color: #f0f0f0;
             display: flex;
             justify-content: center;
@@ -203,7 +215,7 @@
         }
 
         .timeline-content {
-            width: 70%;
+            width: 100%;
             background-color: #333;
             display: flex;
             justify-content: center;
@@ -450,21 +462,27 @@
 
     <!-- Gallery 섹션 -->
     <div class="gallery-section" id="gallery">
+        <!-- 연혁을 표시하는 왼쪽 바 -->
+        <div class="timeline-sidebar">
+            <div class="timeline-date">2024.08</div>
+            <div class="timeline-date">2023.12</div>
+            <div class="timeline-date">2023.06</div>
+            <!-- 추가 날짜를 이곳에 추가하세요 -->
+        </div>
+
+        <!-- 사진을 표시하는 오른쪽 섹션 -->
         <div class="gallery-container">
             <div class="timeline-item">
-                <div class="timeline-date">2024.08</div>
                 <div class="timeline-content">
                     <img src="IMG_6957.JPG" alt="Image description 1">
                 </div>
             </div>
             <div class="timeline-item">
-                <div class="timeline-date">2023.12</div>
                 <div class="timeline-content">
                     <img src="seos.jpg" alt="Image description 2">
                 </div>
             </div>
             <div class="timeline-item">
-                <div class="timeline-date">2023.06</div>
                 <div class="timeline-content">
                     <img src="your-image3.jpg" alt="Image description 3">
                 </div>
