@@ -198,17 +198,18 @@
             <div class="container-profile">
                 <header>
                     <h1 class="centered">About Sooyon Seo</h1>
-                    <div class="centered">
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sooyon1119@g.skku.edu&su=Subject&body=Your%20message" target="_blank">
-                            <i class="fas fa-envelope" style="font-size:40px; color:#333;"></i>
-                        </a>
-                        <a href="https://www.instagram.com/ord_zhl_/" target="_blank">
-                            <i class="fab fa-instagram" style="font-size:40px; color:#E4405F;"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/sooyon-seo/" target="_blank">
-                            <i class="fab fa-linkedin" style="font-size:40px; color:#0077B5;"></i>
-                        </a>
-                    </div>
+			<div class="centered">
+    				<a href="https://mail.google.com/mail/?view=cm&fs=1&to=sooyon1119@g.skku.edu&su=Subject&body=Your%20message" target="_blank" style="margin: 0 15px;">
+        				<i class="fas fa-envelope" style="font-size:40px; color:#333;"></i>
+    				</a>
+    				<a href="https://www.instagram.com/ord_zhl_/" target="_blank" style="margin: 0 15px;">
+        				<i class="fab fa-instagram" style="font-size:40px; color:#E4405F;"></i>
+    				</a>
+    				<a href="https://www.linkedin.com/in/sooyon-seo/" target="_blank" style="margin: 0 15px;">
+        				<i class="fab fa-linkedin" style="font-size:40px; color:#0077B5;"></i>
+    				</a>
+			</div>
+
                 </header>
                 <div class="content">
                     <hr>
@@ -334,21 +335,21 @@
 
     <script>
 	document.addEventListener('scroll', function () {
-    const profileSection = document.getElementById('profile');
-    const profileSectionTop = profileSection.getBoundingClientRect().top;
-    const profileSectionBottom = profileSection.getBoundingClientRect().bottom;
-    const windowHeight = window.innerHeight;
+    		const profileSection = document.getElementById('profile');
+    		const profileSectionTop = profileSection.getBoundingClientRect().top;
+    		const profileSectionBottom = profileSection.getBoundingClientRect().bottom;
+    		const windowHeight = window.innerHeight;
 
-    if (profileSectionTop < windowHeight && profileSectionBottom > 0) {
-        if (!profileSection.classList.contains('visible')) {
-            profileSection.classList.add('visible');
-        }
-    } else if (profileSectionBottom <= 0 || profileSectionTop >= windowHeight) {
-        if (profileSection.classList.contains('visible')) {
-            profileSection.classList.remove('visible');
-        }
-    }
-});
+    		if (profileSectionTop < windowHeight && profileSectionBottom > 0) {
+        		if (!profileSection.classList.contains('visible')) {
+            		profileSection.classList.add('visible');
+        		}
+    		} else if (profileSectionBottom <= 0 || profileSectionTop >= windowHeight) {
+        		if (profileSection.classList.contains('visible')) {
+            		profileSection.classList.remove('visible');
+        		}
+    		}
+	});
 
 
     </script>
