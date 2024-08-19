@@ -196,7 +196,6 @@
             justify-content: center;
         }
 
-/* Gallery 아이템 */
 .gallery-item {
     position: relative;
     overflow: hidden;
@@ -206,8 +205,6 @@
     opacity: 0; /* 처음에 투명하게 설정 */
     transform: translateY(100px); /* 초기 위치를 아래로 설정 */
     transition: transform 1s ease, opacity 1s ease; /* 애니메이션 효과 추가 */
-    max-width: 60vw;  /* 최대 너비를 뷰포트 너비의 60%로 설정 */
-    max-height: 50vh; /* 최대 높이를 뷰포트 높이의 50%로 설정 */
 }
 
 /* 가시성 활성화 시 적용될 스타일 */
@@ -219,8 +216,8 @@
 /* 갤러리 아이템 안의 이미지 스타일 */
 .gallery-item img {
     width: 100%;
-    height: auto; /* 비율을 유지하며 높이를 자동으로 조정 */
-    object-fit: contain; /* 이미지 비율을 유지하며 최대 크기에 맞춤 */
+    height: 100%; /* 비율을 유지하며 아이템의 크기에 맞춤 */
+    object-fit: cover; /* 이미지가 아이템 크기를 채우도록 설정 */
     display: block;
     transition: opacity 0.5s ease; /* 페이드 효과 */
 }
