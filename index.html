@@ -428,69 +428,59 @@
     </div>
 
     <script>
-document.addEventListener('scroll', function () {
-    const sections = document.querySelectorAll('section, .profile-section, .gallery-section');
-    const menuLinks = document.querySelectorAll('.vertical-menu a');
-    let currentSection = '';
+        document.addEventListener('scroll', function () {
+            const sections = document.querySelectorAll('section, .profile-section, .gallery-section');
+            const menuLinks = document.querySelectorAll('.vertical-menu a');
 
-    sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
+            let currentSection = '';
 
-        if (sectionTop <= 0 && sectionTop > -section.clientHeight) {
-            currentSection = section.getAttribute('id');
-        }
-    });
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
 
-    menuLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').includes(currentSection)) {
-            link.classList.add('active');
-        }
-    });
+                if (sectionTop <= 0 && sectionTop > -section.clientHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
 
-    // 홈 메뉴 항목의 활성화 처리
-    const homeLink = document.querySelector('.vertical-menu a[href="#home"]');
-    const isHome = window.location.hash === '#home' || window.location.pathname === '/main/' || window.location.hash === '';
+            menuLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(currentSection)) {
+                    link.classList.add('active');
+                }
+            });
+        });
 
-    if (isHome) {
-        homeLink.classList.add('active');
-    } else {
-        homeLink.classList.remove('active');
-    }
-});
+        document.addEventListener('scroll', function () {
+            const profileSection = document.getElementById('profile');
+            const gallerySection = document.getElementById('gallery');
+            const profileSectionTop = profileSection.getBoundingClientRect().top;
+            const profileSectionBottom = profileSection.getBoundingClientRect().bottom;
+            const gallerySectionTop = gallerySection.getBoundingClientRect().top;
+            const gallerySectionBottom = gallerySection.getBoundingClientRect().bottom;
+            const windowHeight = window.innerHeight;
 
-document.addEventListener('scroll', function () {
-    const profileSection = document.getElementById('profile');
-    const gallerySection = document.getElementById('gallery');
-    const profileSectionTop = profileSection.getBoundingClientRect().top;
-    const profileSectionBottom = profileSection.getBoundingClientRect().bottom;
-    const gallerySectionTop = gallerySection.getBoundingClientRect().top;
-    const gallerySectionBottom = gallerySection.getBoundingClientRect().bottom;
-    const windowHeight = window.innerHeight;
+            // Profile 섹션 애니메이션
+            if (profileSectionTop < windowHeight && profileSectionBottom > 0) {
+                if (!profileSection.classList.contains('visible')) {
+                    profileSection.classList.add('visible');
+                }
+            } else if (profileSectionBottom <= 0 || profileSectionTop >= windowHeight) {
+                if (profileSection.classList.contains('visible')) {
+                    profileSection.classList.remove('visible');
+                }
+            }
 
-    // Profile 섹션 애니메이션
-    if (profileSectionTop < windowHeight && profileSectionBottom > 0) {
-        if (!profileSection.classList.contains('visible')) {
-            profileSection.classList.add('visible');
-        }
-    } else if (profileSectionBottom <= 0 || profileSectionTop >= windowHeight) {
-        if (profileSection.classList.contains('visible')) {
-            profileSection.classList.remove('visible');
-        }
-    }
-
-    // Gallery 섹션 애니메이션
-    if (gallerySectionTop < windowHeight && gallerySectionBottom > 0) {
-        if (!gallerySection.classList.contains('visible')) {
-            gallerySection.classList.add('visible');
-        }
-    } else if (gallerySectionBottom <= 0 || gallerySectionTop >= windowHeight) {
-        if (gallerySection.classList.contains('visible')) {
-            gallerySection.classList.remove('visible');
-        }
-    }
-});
-
+            // Gallery 섹션 애니메이션
+            if (gallerySectionTop < windowHeight && gallerySectionBottom > 0) {
+                if (!gallerySection.classList.contains('visible')) {
+                    gallerySection.classList.add('visible');
+                }
+            } else if (gallerySectionBottom <= 0 || gallerySectionTop >= windowHeight) {
+                if (gallerySection.classList.contains('visible')) {
+                    gallerySection.classList.remove('visible');
+                }
+            }
+        });
     </script>
 </body>
 </html>
