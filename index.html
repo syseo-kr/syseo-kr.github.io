@@ -223,48 +223,48 @@
             transition: opacity 0.5s ease; /* 페이드 효과 */
         }
 
-/* Gallery 아이템 내부의 페이드 효과 패널 */
-.gallery-item .fade-panel {
-    position: absolute;
-    left: 0;
-    height: 100%;
-    width: 90%; /* 원하는 너비로 조정 */
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
-    z-index: 2; /* 이미지 위에 오도록 설정 */
-    opacity: 0; /* 처음에는 보이지 않도록 설정 */
-    transition: opacity 0.5s ease; /* 페이드 효과 추가 */
-}
+        /* Gallery 아이템 내부의 페이드 효과 패널 */
+        .gallery-item .fade-panel {
+            position: absolute;
+            left: 0;
+            height: 100%;
+            width: 60%; /* 전체 이미지를 덮도록 설정 */
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+            z-index: 2; /* 이미지 위에 오도록 설정 */
+            transition: opacity 0.5s ease; /* 페이드 효과 추가 */
+            opacity: 0; /* 처음에는 보이지 않도록 설정 */
+        }
 
-/* Hover 시 페이드 효과가 보이도록 설정 */
-.gallery-item:hover .fade-panel {
-    opacity: 1;
-}
+        /* Hover 시 페이드 효과가 보이도록 설정 */
+        .gallery-item:hover .fade-panel {
+            opacity: 1;
+        }
 
-/* Hover 시 오버레이와 텍스트가 보이도록 설정 */
-.gallery-item .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: flex-start; /* 텍스트를 왼쪽에 위치 */
-    align-items: center; /* 텍스트가 세로 중앙에 오도록 설정 */
-    opacity: 0;
-    transition: opacity 0.5s ease; /* 페이드 효과 추가 */
-    z-index: 3; /* 페이드 패널보다 위에 오도록 설정 */
-    padding-left: 5%; /* 왼쪽에 5% 패딩 추가 */
-}
+        /* Hover 시 오버레이와 텍스트가 보이도록 설정 */
+        .gallery-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: flex-start; /* 텍스트가 수평 중앙에 오도록 설정 */
+            padding-left: 20px;
+            align-items: center; /* 텍스트가 세로 중앙에 오도록 설정 */
+            opacity: 0;
+            transition: opacity 0.5s ease; /* 페이드 효과 추가 */
+            z-index: 3; /* 페이드 패널보다 위에 오도록 설정 */
+        }
 
-.gallery-item:hover .overlay {
-    opacity: 1; /* Hover 시 오버레이가 보이도록 설정 */
-}
+        .gallery-item:hover .overlay {
+            opacity: 1; /* Hover 시 오버레이가 보이도록 설정 */
+        }
 
-.gallery-item .overlay .text {
-    color: white;
-    font-size: 1.5em;
-    text-align: left; /* 텍스트 왼쪽 정렬 */
-}
+        .gallery-item .overlay .text {
+            color: white;
+            font-size: 1.5em;
+            text-align: left; /* 텍스트 중앙 정렬 */
+        }
 
         
     </style>
