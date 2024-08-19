@@ -182,7 +182,7 @@
         .gallery-container {
 
             margin: 0 auto; /* 가운데 정렬 */
-            padding: 40px 0; /* 위아래 여백 */
+            padding: 50px 0; /* 위아래 여백 */
             display: flex;
             justify-content: center;
         }
@@ -190,9 +190,9 @@
         /* Gallery 내부 */
         .gallery {
             padding:40px 0;
-            margin-left: 10vw;
+            margin-left: 20vw;
             margin-right: auto;
-            width: calc(100% - 10vw); /* 화면의 80%에서 수직 메뉴 바 너비를 뺀 크기 */
+            width: calc(100% - 20vw); /* 화면의 80%에서 수직 메뉴 바 너비를 뺀 크기 */
             background-color: #333;
             display: flex;
             flex-wrap: wrap;
@@ -421,10 +421,18 @@
 
     <!-- Gallery 섹션 -->
     <div class="gallery-section" id="gallery">
+        <h1>2023.08</h1>
         <div class="gallery-container">
             <div class="gallery">
                 <div class="gallery-item">
                     <img src="IMG_6957.JPG" alt="Image description">
+                    <div class="overlay">
+                        <div class="text">Your Image Description</div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="seos.jpg" alt="Image description">
                     <div class="overlay">
                         <div class="text">Your Image Description</div>
                     </div>
