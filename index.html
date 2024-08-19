@@ -10,11 +10,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap">
 	<title>Seo Main</title>
     <style>
+        /* 전체 페이지 설정 */
         body {
             margin: 0;
 	        height: 100%;
             font-family: Lora, sans-serif;
             background-color: #f0f0f0;
+            overflow-x: hidden; /* 수평 스크롤 숨기기 */
         }
 
         /* 컨테이너: 이미지와 텍스트를 담는 박스 */
@@ -57,7 +59,7 @@
         .main-content {
             width: 85vw; /* 화면 너비에서 메뉴 바 너비(200px)를 뺀 크기 */
             position: relative;
-	        overflow-y: auto; /* 세로 스크롤을 가능하게 함 */
+	        overflow: hidden; /* 스크롤 숨기기 */
         }
 
         /* 중앙 이미지 스타일 */
@@ -105,6 +107,16 @@
             min-height: 100vh;
             background-color: #f0f0f0;
             box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(100px); /* 초기 위치를 아래로 설정 */
+            transition: transform 1s ease, opacity 1s ease; /* 애니메이션 효과 추가 */
+            position: relative;
+            width: 100%;
+        }
+
+        .profile-section.visible {
+            opacity: 1;
+            transform: translateY(0); /* 스크롤 시 섹션이 위로 이동하며 보임 */
         }
 
         /* 메인 컨텐츠 스타일 */
