@@ -105,11 +105,11 @@
             min-height: 100vh;
             background-color: #f0f0f0;
             box-sizing: border-box;
-            transform: translateY(100%); /* 초기 위치를 화면 아래로 설정 */
-            transition: transform 1s ease-in-out; /* 애니메이션 효과 추가 */
-            /*position: absolute;
+            opacity: 0;
+            transform: translateY(100px); /* 초기 위치를 아래로 설정 */
+            transition: transform 1s ease, opacity 1s ease; /* 애니메이션 효과 추가 */
+            position: relative;
             width: 100%;
-            top: 0;*/
         }
 
         /* 메인 컨텐츠 스타일 */
