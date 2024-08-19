@@ -13,7 +13,7 @@
         /* 전체 페이지 설정 */
         body {
             margin: 0;
-	    height: 100%;
+	        height: 100%;
             font-family: Lora, sans-serif;
             background-color: #f0f0f0;
             overflow-x: hidden; /* 수평 스크롤 숨기기 */
@@ -33,7 +33,7 @@
             color: white;
             list-style-type: none;
             position: fixed;
-	    top: 0;
+	        top: 0;
             right: 0; /* 오른쪽에 메뉴 바 고정 */
             height: 100%;
             z-index: 1000;
@@ -46,9 +46,9 @@
             padding: 15px 30px; /* 상하 패딩을 20px으로 설정하여 간격 넓히기 */
             text-decoration: none;
             color: gray;
-	    font-size: 20px;
+	        font-size: 20px;
             text-align: center;
-	    transition: color 0.3s ease;
+	        transition: color 0.3s ease;
         }
 
         .vertical-menu a:hover {
@@ -97,7 +97,7 @@
             padding: 0 0 15px 0; /* 각 요소에 하단 패딩 추가 */
         }
 	
-	.centered {
+	    .centered {
             text-align: center; /* 이 클래스가 적용된 텍스트만 가운데 정렬 */
         }
 
@@ -107,16 +107,11 @@
             min-height: 100vh;
             background-color: #f0f0f0;
             box-sizing: border-box;
-            opacity: 0;
-            transform: translateY(100px); /* 초기 위치를 아래로 설정 */
-            transition: transform 1s ease, opacity 1s ease; /* 애니메이션 효과 추가 */
-            position: relative;
+            transform: translateY(100%); /* 초기 위치를 화면 아래로 설정 */
+            transition: transform 1s ease-in-out; /* 애니메이션 효과 추가 */
+            position: absolute;
             width: 100%;
-        }
-
-        .profile-section.visible {
-            opacity: 1;
-            transform: translateY(0); /* 스크롤 시 섹션이 위로 이동하며 보임 */
+            top: 0;
         }
 
         /* 메인 컨텐츠 스타일 */
@@ -147,31 +142,19 @@
             border-top: 1px solid #ccc;
             margin: 20px 0;
         }
-
-
-	/*ul {
-            list-style-type: disc;
-            margin-left: 20px;
-            padding-left: 20px;
-        }
-
-        ul ul {
-            list-style-type: circle;
-            margin-left: 20px;
-        }*/
     </style>
 </head>
 
 <body>
     <!-- 수직 메뉴 바 -->
-    <div class="vertical-menu">
+    <ul class="vertical-menu">
         <div class="centered">
-            <a href="#home" style="margin-bottom: 40px;">Home</a>
-            <a href="#profile" style="margin-bottom: 40px;">Profile</a>
-            <a href="#gallery" style="margin-bottom: 40px;">Gallery</a>
-            <a href="#contact">Contact</a>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
         </div>
-    </div>
+    </ul>
 
     <!-- 첫 번째 섹션: 메인 컨텐츠 영역 -->
     <div class="main-content" id="home">
@@ -337,11 +320,10 @@
             const profileSection = document.getElementById('profile');
             const mainContent = document.getElementById('home');
 
-            const profileSectionTop = profileSection.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-
-            if (profileSectionTop < windowHeight) {
-                profileSection.classList.add('visible');
+            if (window.scrollY > mainContent.offsetHeight / 2) {
+                profileSection.style.transform = 'translateY(0)';
+            } else {
+                profileSection.style.transform = 'translateY(100%)';
             }
         });
     </script>
