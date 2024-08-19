@@ -149,7 +149,6 @@
         }
 
 
-	    
 	ul {
             list-style-type: disc;
             margin-left: 20px;
@@ -332,5 +331,19 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('scroll', function () {
+            const profileSection = document.getElementById('profile');
+            const mainContent = document.getElementById('home');
+
+            const profileSectionTop = profileSection.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (profileSectionTop < windowHeight) {
+                profileSection.classList.add('visible');
+            }
+        });
+    </script>
 </body>
 </html>
