@@ -200,7 +200,7 @@
 .gallery-item {
     position: relative;
     width: 100%; /* 부모 컨테이너의 너비에 맞춤 */
-    max-width: 60%;
+    max-width: 60%; /* 부모 컨테이너 너비의 최대값 */
     margin: 0 auto; /* 가운데 정렬 */
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
@@ -217,13 +217,12 @@
 
 .gallery-item img {
     width: 100%;
-    height: auto; /* 비율을 유지하며 높이를 자동으로 조정 */
-    object-fit: contain; /* 이미지 비율을 유지하며 최대 크기에 맞춤 */
-    max-width: 80vw; /* 이미지의 최대 가로 크기를 viewport의 80%로 설정 */
-    max-height: 50vh; /* 이미지의 최대 세로 크기를 viewport의 50%로 설정 */
+    height: 100%; /* 높이도 부모 컨테이너에 맞춤 */
+    object-fit: cover; /* 이미지의 비율을 유지하면서 컨테이너를 완전히 채움 */
     display: block;
     transition: opacity 0.5s ease;
 }
+
 
         /* Gallery 아이템 내부의 페이드 효과 패널 */
         .gallery-item .fade-panel {
