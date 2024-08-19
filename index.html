@@ -217,7 +217,7 @@
         }
 
         /* 오버레이 및 텍스트 */
-        /*.gallery-item .overlay {
+        .gallery-item .overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -229,35 +229,15 @@
             align-items: center;
             opacity: 0;
             transition: opacity 0.5s ease; /* 페이드 효과 */
-        }*/
-
-                /* 페이드 효과를 위한 왼쪽 패널 */
-        .gallery-item .overlay {
-            position: absolute;
-            left: 0;
-            height: 100%;
-            width: 70%; /* 화면의 35%만큼 페이드 패널 차지 */
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
-            z-index: 2; /* 이미지 위에 오도록 설정 */
         }
 
-        /* 소개글 스타일 */
-        .gallery-item .overlay.text {
-            position: absolute;
-            left: 5%; /* 이미지 왼쪽에 위치 */
-            max-width: 50%; /* 소개글의 너비를 설정 */
-            color: white;
-            z-index: 3;
-            font-size: 1.4em;
-            top: 20%; /* 텍스트가 상단에서부터 얼마나 떨어져 있는지 설정 */
-        }
         
 
-        /*.gallery-item .overlay .text {
+        .gallery-item .overlay .text {
             color: white;
             font-size: 1.5em;
             text-align: center;
-        }*/
+        }
 
         /* Hover 효과 */
         .gallery-item:hover img {
