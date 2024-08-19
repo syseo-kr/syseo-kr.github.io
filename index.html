@@ -525,13 +525,16 @@ window.addEventListener('load', function () {
         img.onload = function() {
             const aspectRatio = img.naturalWidth / img.naturalHeight;
             
-            // 초기 설정: width는 최대 60vw, height는 비율에 따라 설정
-            let width = Math.min(item.clientWidth, window.innerWidth * 0.6);
-            let height = width / aspectRatio;
-            
-            // 만약 계산된 높이가 최대 높이(50vh)를 초과하면, 높이를 최대 높이로 설정하고 너비를 조정
-            if (height > window.innerHeight * 0.5) {
-                height = window.innerHeight * 0.5;
+            let width, height;
+
+            // 가로로 긴 이미지일 때
+            if (aspectRatio >= 1) {
+                width = Math.min(window.innerWidth * 0.6, img.naturalWidth);
+                height = width / aspectRatio;
+            } 
+            // 세로로 긴 이미지일 때
+            else {
+                height = Math.min(window.innerHeight * 0.5, img.naturalHeight);
                 width = height * aspectRatio;
             }
             
@@ -541,6 +544,7 @@ window.addEventListener('load', function () {
         };
     });
 });
+
 
 
 
