@@ -49,6 +49,11 @@
             color: white;
         }
 
+        /* 활성화된 메뉴 항목 스타일 */
+        .vertical-menu a.active {
+            color: white;
+        }
+
         /* 첫 번째 섹션: 메인 컨텐츠 영역 */
         .main-content {
             width: 85vw; /* 화면 너비에서 메뉴 바 너비를 뺀 크기 */
@@ -155,7 +160,7 @@
         /* Gallery 섹션 */
         .gallery-section {
             background-color: #333; /* 배경색 */
-            padding-top: 100px; /* 위쪽 여백 */
+            padding-top: 50px; /* 위쪽 여백 */
             min-height: 100vh;
             box-sizing: border-box;
             opacity: 0;
@@ -172,7 +177,7 @@
         /* Gallery 컨테이너 */
         .gallery-container {
             margin-left: auto;
-            margin-right: 15vw;
+            margin-right: 15vw; /* 메뉴 바 너비만큼 오른쪽 여백 추가 */
             width: calc(80% - 15vw); /* 화면의 80%에서 수직 메뉴 바 너비를 뺀 크기 */
             margin: 0 auto; /* 가운데 정렬 */
             padding: 40px 0; /* 위아래 여백 */
@@ -191,18 +196,18 @@
         /* Gallery 아이템 */
         .gallery-item {
             position: relative;
-            width: 400px; /* 원하는 이미지 크기로 설정 (너비) */
-            height: 300px; /* 원하는 이미지 크기로 설정 (높이) */
+            width: 100%; /* 부모 컨테이너의 너비에 맞춤 */
+            max-width: 600px; /* 원하는 최대 너비 설정 */
+            margin: 0 auto; /* 가운데 정렬 */
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 벽에 걸린 듯한 그림자 효과 */
             border-radius: 10px; /* 모서리를 둥글게 */
             background-color: white; /* 이미지 배경색 */
         }
 
-        /* Gallery 이미지 */
         .gallery-item img {
             width: 100%;
-            height: 100%;
+            height: auto; /* 비율을 유지하며 높이를 자동으로 조정 */
             object-fit: cover; /* 이미지가 박스를 채우도록 설정 */
             transition: opacity 0.5s ease; /* 페이드 효과 */
         }
@@ -410,7 +415,6 @@
     <!-- Gallery 섹션 -->
     <div class="gallery-section" id="gallery">
         <div class="gallery-container">
-                    <h1 class="centered">Gallery</h1>            
             <div class="gallery">
                 <div class="gallery-item">
                     <img src="IMG_6957.JPG" alt="Image description">
@@ -424,6 +428,28 @@
     </div>
 
     <script>
+        document.addEventListener('scroll', function () {
+            const sections = document.querySelectorAll('section, .profile-section, .gallery-section');
+            const menuLinks = document.querySelectorAll('.vertical-menu a');
+
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+
+                if (sectionTop <= 0 && sectionTop > -section.clientHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            menuLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(currentSection)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
         document.addEventListener('scroll', function () {
             const profileSection = document.getElementById('profile');
             const gallerySection = document.getElementById('gallery');
