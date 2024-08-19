@@ -223,49 +223,49 @@
             transition: opacity 0.5s ease; /* 페이드 효과 */
         }
 
-        /* Gallery 아이템 내부의 페이드 효과 패널 */
-        .gallery-item .fade-panel {
-            position: absolute;
-            left: 0;
-            height: 100%;
-            width: 100%; /* 전체 이미지를 덮도록 설정 */
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
-            z-index: 2; /* 이미지 위에 오도록 설정 */
-            transition: opacity 0.5s ease; /* 페이드 효과 추가 */
-            opacity: 0; /* 처음에는 보이지 않도록 설정 */
-        }
+/* Gallery 아이템 내부의 페이드 효과 패널 */
+.gallery-item .fade-panel {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 60%; /* 원하는 너비로 조정 */
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    z-index: 2; /* 이미지 위에 오도록 설정 */
+    opacity: 0; /* 처음에는 보이지 않도록 설정 */
+    transition: opacity 0.5s ease; /* 페이드 효과 추가 */
+}
 
-        /* Hover 시 페이드 효과가 보이도록 설정 */
-        .gallery-item:hover .fade-panel {
-            opacity: 1;
-        }
+/* Hover 시 페이드 효과가 보이도록 설정 */
+.gallery-item:hover .fade-panel {
+    opacity: 1;
+}
 
-        /* Hover 시 오버레이와 텍스트가 보이도록 설정 */
-        .gallery-item .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 50%; /* 왼쪽 절반만 차지하도록 설정 */
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* 반투명 검정 오버레이 */
-            display: flex;
-            justify-content: flex-start; /* 텍스트가 왼쪽에 오도록 설정 */
-            align-items: center; /* 텍스트가 세로 중앙에 오도록 설정 */
-            opacity: 0;
-            transition: opacity 0.5s ease; /* 페이드 효과 추가 */
-            z-index: 3; /* 페이드 패널보다 위에 오도록 설정 */
-        }
+/* Hover 시 오버레이와 텍스트가 보이도록 설정 */
+.gallery-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* 텍스트가 수평 중앙에 오도록 설정 */
+    align-items: center; /* 텍스트가 세로 중앙에 오도록 설정 */
+    opacity: 0;
+    transition: opacity 0.5s ease; /* 페이드 효과 추가 */
+    z-index: 3; /* 페이드 패널보다 위에 오도록 설정 */
+}
 
-        .gallery-item:hover .overlay {
-            opacity: 1; /* Hover 시 오버레이가 보이도록 설정 */
-        }
+.gallery-item:hover .overlay {
+    opacity: 1; /* Hover 시 오버레이가 보이도록 설정 */
+}
 
-        .gallery-item .overlay .text {
-            color: white;
-            font-size: 1.5em;
-            text-align: left; /* 텍스트 왼쪽 정렬 */
-            padding-left: 20px; /* 텍스트가 너무 왼쪽에 붙지 않도록 패딩 추가 */
-        }
+.gallery-item .overlay .text {
+    color: white;
+    font-size: 1.5em;
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+        
     </style>
 </head>
 <body>
@@ -441,20 +441,21 @@
     <div class="gallery-section visible" id="gallery">
         <div class="gallery-container">
             <div class="gallery">
-                <div class="gallery-item visible">
-                    <div class="fade-panel"></div> <!-- 페이드 효과 패널 추가 -->
-                    <img src="IMG_6957.JPG" alt="Image description">
-                    <div class="overlay">
-                        <div class="text">Your Image Description</div>
-                    </div>
-                </div>
-                <div class="gallery-item visible">
-                    <div class="fade-panel"></div> <!-- 페이드 효과 패널 추가 -->
-                    <img src="seos.jpg" alt="Image description">
-                    <div class="overlay">
-                        <div class="text">Your Image Description</div>
-                    </div>
-                </div>
+                <div class="gallery-item">
+    <div class="fade-panel"></div> <!-- 페이드 효과 패널 추가 -->
+    <img src="IMG_6957.JPG" alt="Image description">
+    <div class="overlay">
+        <div class="text">Your Image Description</div>
+    </div>
+</div>
+<div class="gallery-item">
+    <div class="fade-panel"></div> <!-- 페이드 효과 패널 추가 -->
+    <img src="seos.jpg" alt="Image description">
+    <div class="overlay">
+        <div class="text">Your Image Description</div>
+    </div>
+</div>
+
                 <!-- 필요한 만큼 gallery-item을 추가하세요 -->
             </div>
         </div>
