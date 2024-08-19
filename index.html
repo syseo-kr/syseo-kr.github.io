@@ -334,16 +334,22 @@
 
     <script>
 	document.addEventListener('scroll', function () {
-    		const profileSection = document.getElementById('profile');
-    		const profileSectionTop = profileSection.getBoundingClientRect().top;
-    		const windowHeight = window.innerHeight;
+    const profileSection = document.getElementById('profile');
+    const profileSectionTop = profileSection.getBoundingClientRect().top;
+    const profileSectionBottom = profileSection.getBoundingClientRect().bottom;
+    const windowHeight = window.innerHeight;
 
-    		if (profileSectionTop < windowHeight && profileSectionTop > 0) {
-        		profileSection.classList.add('visible');
-    		} else {
-        		profileSection.classList.remove('visible');
-    		}
-	});
+    if (profileSectionTop < windowHeight && profileSectionBottom > 0) {
+        if (!profileSection.classList.contains('visible')) {
+            profileSection.classList.add('visible');
+        }
+    } else if (profileSectionBottom <= 0 || profileSectionTop >= windowHeight) {
+        if (profileSection.classList.contains('visible')) {
+            profileSection.classList.remove('visible');
+        }
+    }
+});
+
 
     </script>
 </body>
