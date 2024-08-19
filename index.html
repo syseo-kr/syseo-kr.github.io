@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap">
+	<title>Seo Main</title>
+    <style>
+        /* 전체 페이지 설정 */
+        body {
+            margin: 0;
+	        height: 100%;
+            font-family: Lora, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        /* 컨테이너: 이미지와 텍스트를 담는 박스 */
+        .container {
+            display: flex;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* 수직 메뉴 바 스타일 */
+        .vertical-menu {
+            width: 15vw;
+            background-color: #333;
+            color: white;
+            list-style-type: none;
+            position: fixed;
+	        top: 0;
+            right: 0; /* 오른쪽에 메뉴 바 고정 */
+            height: 100%;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .vertical-menu a {
+            padding: 15px 30px; /* 상하 패딩을 20px으로 설정하여 간격 넓히기 */
+            text-decoration: none;
+            color: gray;
+	        font-size: 20px;
+            text-align: center;
+	        transition: color 0.3s ease;
+        }
+
+        .vertical-menu a:hover {
+            color: white;
+        }
+
+        /* 이미지와 텍스트를 포함하는 메인 컨텐츠 영역 */
+        .main-content {
+            width: 85vw; /* 화면 너비에서 메뉴 바 너비(200px)를 뺀 크기 */
+            position: relative;
+	        overflow-y: auto; /* 세로 스크롤을 가능하게 함 */
+        }
+
+        /* 중앙 이미지 스타일 */
+        .center-image {
+            width: 100%;
+            min-height: 100vh; /* 최소 높이를 화면 높이에 맞춤 */
+            object-fit: cover; /* 이미지가 비율을 유지하면서 영역을 가득 채우도록 설정 */
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 페이드 효과를 위한 왼쪽 패널 */
+        .fade-panel {
+            position: absolute;
+            left: 0;
+            height: 100%;
+            width: 60%; /* 화면의 35%만큼 페이드 패널 차지 */
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+            z-index: 2; /* 이미지 위에 오도록 설정 */
+        }
+
+        /* 소개글 스타일 */
+        .intro-text {
+            position: absolute;
+            left: 5%; /* 이미지 왼쪽에 위치 */
+            max-width: 40%; /* 소개글의 너비를 설정 */
+            color: white;
+            z-index: 3;
+            font-size: 1.4em;
+            top: 20%; /* 텍스트가 상단에서부터 얼마나 떨어져 있는지 설정 */
+        }
+	
+	    h1, h2, h3, p, ul, li, a {
+            margin: 0;
+            padding: 0 0 15px 0; /* 각 요소에 하단 패딩 추가 */
+        }
+	
+	    .centered {
+            text-align: center; /* 이 클래스가 적용된 텍스트만 가운데 정렬 */
+        }
+
+        /* Profile section styles */
+        .profile-section {
+            padding-top: 100px; /* Adjust padding if needed for spacing between sections */
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            box-sizing: border-box;
+        }
+
+        /* 메인 컨텐츠 스타일 */
+        .main-content-profile {
+            margin-left: auto;
+            margin-right: 15vw; /* 메뉴 바 너비만큼 오른쪽 여백 추가 */
+            display: flex;
+            justify-content: center; /* 수평 중앙 정렬 */
+            align-items: center; /* 수직 중앙 정렬 */
+            width: calc(100% - 15vw);
+            box-sizing: border-box;
+            min-height: 100vh; /* 남은 공간 전체를 사용 */
+        }
+
+        .container-profile {
+            width: 100%;
+            max-width: 70vw;
+            padding: 20px 50px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #ccc;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 수직 메뉴 바 -->
+    <ul class="vertical-menu">
+        <div class="centered">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </div>
+    </ul>
+
+    <!-- 첫 번째 섹션: 메인 컨텐츠 영역 -->
+    <div class="main-content" id="home">
+        <div class="container">
+            <!-- 페이드 효과 패널 -->
+            <div class="fade-panel"></div>
+
+            <!-- 소개글 -->
+    		<div class="intro-text">
+		        <h1>Welcome to<br>Seo's Web Page</h1>
+        		<p style="line-height:1.5">Hello, I am Sooyon Seo from South Korea.<br>
+				I am currently pursuing a Ph.D. degree in Immersive Media Engineering at Sungkyunkwan University(SKKU), Seoul, Republic of Korea, and is researching at SWLab led by Prof. Moohong Min.<br>
+				My research interests include generative artificial intelligence, cybersecurity, and illegal online gambling.</p>
+    		</div>
+
+            <!-- 메뉴 바를 제외한 나머지 공간에 꽉 차는 이미지 -->
+            <img src="IMG_6957.JPG" alt="Centered Image" class="center-image">
+        </div>
+    </div>
+
+    <!-- 두 번째 섹션: 프로필 페이지 -->
+    <div class="profile-section" id="profile">
+        <div class="main-content-profile">
+            <div class="container-profile">
+                <header>
+                    <h1 class="centered">About Sooyon Seo</h1>
+                    <div class="centered">
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sooyon1119@g.skku.edu&su=Subject&body=Your%20message" target="_blank">
+                            <i class="fas fa-envelope" style="font-size:40px; color:#333;"></i>
+                        </a>
+                        <a href="https://www.instagram.com/ord_zhl_/" target="_blank">
+                            <i class="fab fa-instagram" style="font-size:40px; color:#E4405F;"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/sooyon-seo/" target="_blank">
+                            <i class="fab fa-linkedin" style="font-size:40px; color:#0077B5;"></i>
+                        </a>
+                    </div>
+                </header>
+                <div class="content">
+                    <hr>
+                    <h2>Introduction</h2>
+                    <img src="seos.jpg" width="72" height="96" alt="서수연 프로필" style="float: left; margin-right: 15px;">
+                    <p>Hi, I am Sooyon Seo from South Korea.</p>
+                    <p>I am currently pursuing a Ph.D. degree in Immersive Media Engineering at Sungkyunkwan University(SKKU), Seoul, Republic of Korea, and is researching at SWLab led by Prof. Moohong Min.<br>
+                    My research interests include generative artificial intelligence, cybersecurity, and illegal online gambling.</p>
+                    <div style="clear: both;"></div>
+                    <hr>
+                    <h2>Education</h2>
+                    <p><b>2023.08 ~ Present : Integrated M.S./Ph.D degree in Immersive Media Engineering</b> @SKKU </p>
+                    <p><b>2020.03 ~ 2023.08 : B.S. degree in Global Business Administration</b> (Early Graduated as the Top Student in College) @SKKU</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2022.08 : International Summer School @Southern Denmark University, Odense, Denmark</p>
+                    <p><b>2017.03 ~ 2020.02 : High School Diploma in German Language</b> @Daewon Foreign Language High School, Seoul</p>
+                    <hr>
+                    <h2>Conferences & Publications</h2>
+                    <h3>A Study on the Frequency and Pattern Analysis of Spam Messages</h3>
+                    <ul>
+                        <p>Korea Computer Congress(KCC) 2024</p>
+                        <li>June 2024 | Jeju, South Korea</li>
+                        <li><b>Sooyon Seo</b>, Minseok Hur, Jaeho Hwang, Jiwon Jang, Jiho Shin, Moohong Min</li>
+                    </ul>
+                    <h3>An Approach to Detect Illegal Online Gambling Using Generative AI</h3>
+                    <ul>
+                        <p>The 7th International Conference on Mobile Internet Security(MobiSec 2023)</p>
+                        <li>Dec 2023 | Okinawa, Japan</li>
+                        <li><b>Sooyon Seo</b>, Jaeho Hwang, Moohong Min</li>
+                    </ul>
+                    <h3>An Approach to Detect SMS Spam Using ChatGPT</h3>
+                    <ul>
+                        <p>The 18th Asia Pacific International Conference on Information Science and Technology(APIC-IST 2023)</p>
+                        <li>June 2023 | Fukuoka, Japan</li>
+                        <li><b>Sooyon Seo</b>, Jaeho Hwang, Moohong Min</li>
+                    </ul>
+                    <hr>
+                    <h2>Experience</h2>
+                    <h3>Researcher(Full-time) | SKKU, Seoul </h3>
+                    <ul>
+                        <p>Aug 2023 ~ Present</p>
+                        <li>@<a href="https://swlab.skku.edu/sw/index.do">SWLab</a> led by Prof. Moohong Min</li>
+                        <li>Main Research Fields: Generative AI, Cybersecurity, Illegal Online Gambling, Spam Detection</li>
+                        <li>Research Assistant from July 2022 ~ Aug 2023</li>
+                    </ul>
+                    <h3>Teaching Assistant | SKKU, Seoul</h3>
+                    <ul>
+                        <p>Mar 2022 ~ Present</p>
+                        <li>Currently assisting AI Basics & Application course</li>
+                        <li>Assisted 'Computational Thinking & SW Coding' and 'Problem Solving & Algorithm' courses (Programming Language: Python)</li>
+                        <li>Managing and organizing the course with the professor</li>
+                        <li>Dealing with students' questions regarding Python and course assignments</li>
+                    </ul>
+                    <h3>Strategy Intern | ForSpaceLab Inc., Seoul</h3>
+                    <ul>
+                        <p>Dec 2022 ~ Feb 2023</p>
+                        <li>@<a href="https://www.forspacelab.com/">ForSpaceLab Inc.</a>, a business data analyzing start-up company</li>
+                        <li>HR: managed crew evaluation & reward process and organized company culture & core values</li>
+                        <li>supported other management needs such as legal contract review and arrangement of various documents</li>
+                    </ul>
+                    <h3>SKKU Weekly Newspaper Journalist | SKKU, Seoul </h3>
+                    <ul>
+                        <p>Sep 2020 ~ Feb 2022</p>
+                        <li>Head of the Photo Department and a member of Sports Team</li>
+                        <li><a href="https://www.skkuw.com/news/articleList.html?sc_area=I&sc_word=augenblick">Article portfolio</a>
+                            and Seoul Shinmun articles <a href="https://www.seoul.co.kr/news/plan/now/2021/09/13/20210913015011">1)</a> & 
+                            <a href="https://www.seoul.co.kr/news/plan/2022/01/17/20220117011018">2)</a> </li>
+                    </ul>
+                    <h3>Samsung Dream Class Tutor | Samsung Foundation, Seoul</h3>
+                    <ul>
+                        <p>Sep 2021 ~ Feb 2022</p>
+                        <li>Volunteered to teach middle school students in need and guided them to set their career direction </li>
+                        <li>Experienced online education program utilizing various teaching materials</li>
+                    </ul>
+                    <hr>
+                    <h2>Awards & Certificates</h2>
+                    <ul>
+                        <li><b>Best Excellence Award</b></li>
+                        <ul>
+                            <li>Case Competition - Generative AI Chatbot in Security</li>
+                            <li>Issued by Korea Internet & Security Agency</li>
+                        </ul>
+                        <li><b>Dean's Award for Academic Excellence/ First Class Honors</b></li>
+                        <ul>
+                            <li>Awarded for being a model for others with the best academic performance while enrolled in the undergraduate course</li>
+                            <li>Issued by SKK Business School</li>
+                        </ul>
+                        <li><b>Summa Cum Laude</b></li>
+                        <ul>
+                            <li>The highest academic award designated for students in 5% of the class 2023</li>
+                            <li>Issued by SKK Business School</li>
+                        </ul>
+                        <li><b>Dean's List</b></li>
+                        <ul>
+                            <li>Fall & Spring 2022, Fall 2021, Fall & Spring 2020</li>
+                            <li>Recognition of Honorable Academic Achievement</li>
+                            <li>Issued by SKK Business School</li>
+                        </ul>
+                        <li><b>The Next Century Humanities Scholarship</b></li>
+                        <ul>
+                            <li>Full Scholarship for 2 years(4 semesters)</li>
+                            <li>National scholarship for undergraduates in humanities and social sciences who have demonstrated their potentials to be the leaders in those fields</li>
+                            <li>Issued by Ministry of Education</li>
+                        </ul>
+                        <li><b>SKKU Academic Excellence Scholarship</b></li>
+                        <ul>
+                            <li>Received full scholarship for Fall 2020 & Spring 2021</li>
+                            <li>For being one of the Top 3 GBA students who achieved academic excellence</li>
+                            <li>Issued by SKK Business School</li>
+                        </ul>
+                        <li><b>German Reciting Contest</b></li>
+                        <ul>
+                            <li>8 Finalist</li>
+                            <li>Issued by Goethe Institute</li>
+                        </ul>
+                        <li><b>Zertifikat Deutsch(Goethe-German Certificate): B1</b></li>
+                    </ul>
+                    <hr>
+                    <h3>Hmm... any easter-egg idea?</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
