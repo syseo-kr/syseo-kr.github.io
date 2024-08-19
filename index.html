@@ -200,7 +200,8 @@
 .gallery-item {
     position: relative;
     width: 100%; /* 부모 컨테이너의 너비에 맞춤 */
-    max-width: 60%; /* 부모 컨테이너 너비의 최대값 */
+    max-width: 80%; /* 부모 컨테이너의 너비의 최대 80% */
+    max-height: 50vh; /* 뷰포트 높이의 최대 50% */
     margin: 0 auto; /* 가운데 정렬 */
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
@@ -217,13 +218,12 @@
 
 .gallery-item img {
     width: 100%;
-    height: auto; /* 비율을 유지하며 높이를 자동으로 조정 */
-    max-width: 80%; /* 부모 컨테이너의 너비의 최대 80% */
-    max-height: 50%; /* 부모 컨테이너의 높이의 최대 50% */
-    object-fit: contain; /* 이미지 비율을 유지하며 주어진 크기에 맞춤 */
+    height: 100%;
+    object-fit: contain; /* 이미지 비율을 유지하며 부모 크기에 맞춤 */
     display: block;
     transition: opacity 0.5s ease;
 }
+
 
 
 
