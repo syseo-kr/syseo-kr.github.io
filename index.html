@@ -228,7 +228,7 @@
             position: absolute;
             left: 0;
             height: 100%;
-            width: 100%; /* 전체 이미지를 덮도록 설정 */
+            width: 70%; /* 전체 이미지를 덮도록 설정 */
             background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
             z-index: 2; /* 이미지 위에 오도록 설정 */
             transition: opacity 0.5s ease; /* 페이드 효과 추가 */
@@ -261,9 +261,11 @@
         }
 
         .gallery-item .overlay .text {
+            position: relative;
             color: white;
-            font-size: 1.5em;
-            text-align: center;
+            font-size: 1.4em;
+            left:10%;
+            max-width: 50%;
         }
 
     </style>
