@@ -159,19 +159,9 @@
             margin-left: 20px;
         }
 
-
-	/* Gallery 컨테이너 */
-	.gallery {
-    		display: flex;
-    		flex-wrap: wrap;
-    		gap: 20px; /* 아이템 간의 간격 */
-    		background-color: gray; /* 배경색 */
-    		padding: 20px;
-	}
-
 /* Gallery 컨테이너 */
 .gallery-container {
-    width: 80%;
+    width: calc(80% - 15vw); /* 화면의 80%에서 수직 메뉴 바 너비를 뺀 크기 */;
     margin: 0 auto; /* 가운데 정렬 */
     padding: 40px 0; /* 위아래 여백 */
     background-color: gray; /* 전체 배경색 */
