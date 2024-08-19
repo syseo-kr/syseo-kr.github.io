@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts CSS -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&amp;display=swap">
     <title>Seo Main</title>
     <style>
         /* 전체 페이지 설정 */
@@ -197,15 +195,22 @@
         }
 
         /* Gallery 아이템 */
-        .gallery-item {
-            position: relative;
-            width: 100%; /* 부모 컨테이너의 너비에 맞춤 */
-            max-width: 60%;
-            margin: 0 auto; /* 가운데 정렬 */
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 벽에 걸린 듯한 그림자 효과 */
-            background-color: white; /* 이미지 배경색 */
-        }
+.gallery-item {
+    position: relative;
+    width: 100%; /* 부모 컨테이너의 너비에 맞춤 */
+    max-width: 60%;
+    margin: 0 auto; /* 가운데 정렬 */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 벽에 걸린 듯한 그림자 효과 */
+    background-color: white; /* 이미지 배경색 */
+    opacity: 0; /* 처음에 투명하게 설정 */
+    transform: translateY(100px); /* 초기 위치를 아래로 설정 */
+    transition: transform 1s ease, opacity 1s ease; /* 애니메이션 효과 추가 */
+}
+.gallery-item.visible {
+    opacity: 1;
+    transform: translateY(0); /* 스크롤 시 섹션이 위로 이동하며 보임 */
+}
 
         .gallery-item img {
             width: 100%;
@@ -248,7 +253,7 @@
 }
     </style>
 </head>
-<body>
+<body data-new-gr-c-s-check-loaded="14.1191.0" data-gr-ext-installed="">
     <!-- 수직 메뉴 바 -->
     <ul class="vertical-menu">
         <div class="centered">
@@ -285,7 +290,7 @@
                 <header>
                     <h1 class="centered">About Sooyon Seo</h1>
                     <div class="centered">
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sooyon1119@g.skku.edu&su=Subject&body=Your%20message" target="_blank" style="margin: 0 15px; text-decoration: none;">
+                        <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=sooyon1119@g.skku.edu&amp;su=Subject&amp;body=Your%20message" target="_blank" style="margin: 0 15px; text-decoration: none;">
                             <i class="fas fa-envelope" style="font-size:40px; color:#333;"></i>
                         </a>
                         <a href="https://www.instagram.com/ord_zhl_/" target="_blank" style="margin: 0 15px; text-decoration: none;">
@@ -311,7 +316,7 @@
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2022.08 : International Summer School @Southern Denmark University, Odense, Denmark</p>
                     <p><b>2017.03 ~ 2020.02 : High School Diploma in German Language</b> @Daewon Foreign Language High School, Seoul</p>
                     <hr>
-                    <h2>Conferences & Publications</h2>
+                    <h2>Conferences &amp; Publications</h2>
                     <h3>A Study on the Frequency and Pattern Analysis of Spam Messages</h3>
                     <ul>
                         <p>Korea Computer Congress(KCC) 2024</p>
@@ -342,8 +347,8 @@
                     <h3>Teaching Assistant | SKKU, Seoul</h3>
                     <ul>
                         <p>Mar 2022 ~ Present</p>
-                        <li>Currently assisting AI Basics & Application course</li>
-                        <li>Assisted 'Computational Thinking & SW Coding' and 'Problem Solving & Algorithm' courses (Programming Language: Python)</li>
+                        <li>Currently assisting AI Basics &amp; Application course</li>
+                        <li>Assisted 'Computational Thinking &amp; SW Coding' and 'Problem Solving &amp; Algorithm' courses (Programming Language: Python)</li>
                         <li>Managing and organizing the course with the professor</li>
                         <li>Dealing with students' questions regarding Python and course assignments</li>
                     </ul>
@@ -351,18 +356,141 @@
                     <ul>
                         <p>Dec 2022 ~ Feb 2023</p>
                         <li>@<a href="https://www.forspacelab.com/">ForSpaceLab Inc.</a>, a business data analyzing start-up company</li>
-                        <li>HR: managed crew evaluation & reward process and organized company culture & core values</li>
+                        <li>HR: managed crew evaluation &amp; reward process and organized company culture &amp; core values</li>
                         <li>supported other management needs such as legal contract review and arrangement of various documents</li>
                     </ul>
                     <h3>SKKU Weekly Newspaper Journalist | SKKU, Seoul </h3>
                     <ul>
                         <p>Sep 2020 ~ Feb 2022</p>
                         <li>Head of the Photo Department and a member of Sports Team</li>
-                        <li><a href="https://www.skkuw.com/news/articleList.html?sc_area=I&sc_word=augenblick">Article portfolio</a>
-                            and Seoul Shinmun articles <a href="https://www.seoul.co.kr/news/plan/now/2021/09/13/20210913015011">1)</a> & 
+                        <li><a href="https://www.skkuw.com/news/articleList.html?sc_area=I&amp;sc_word=augenblick">Article portfolio</a>
+                            and Seoul Shinmun articles <a href="https://www.seoul.co.kr/news/plan/now/2021/09/13/20210913015011">1)</a> &amp; 
                             <a href="https://www.seoul.co.kr/news/plan/2022/01/17/20220117011018">2)</a> </li>
                     </ul>
                     <h3>Samsung Dream Class Tutor | Samsung Foundation, Seoul</h3>
                     <ul>
                         <p>Sep 2021 ~ Feb 2022</p>
-                        <li>Volunteered to teach middle school students in 
+                        <li>Volunteered to teach middle school students in need and guided them to set their career direction </li>
+                        <li>Experienced online education program utilizing various teaching materials</li>
+                    </ul>
+                    <hr>
+                    <h2>Awards &amp; Certificates</h2>
+                    <ul>
+                        <li><b>Best Excellence Award</b></li>
+                        <ul>
+                            <li>Case Competition - Generative AI Chatbot in Security</li>
+                            <li>Issued by Korea Internet &amp; Security Agency</li>
+                        </ul>
+                        <li><b>Dean's Award for Academic Excellence/ First Class Honors</b></li>
+                        <ul>
+                            <li>Awarded for being a model for others with the best academic performance while enrolled in the undergraduate course</li>
+                            <li>Issued by SKK Business School</li>
+                        </ul>
+                        <li><b>Summa Cum Laude</b></li>
+                        <ul>
+                            <li>The highest academic award designated for students in 5% of the class 2023</li>
+                            <li>Issued by SKK Business School</li>
+                        </ul>
+                        <li><b>Dean's List</b></li>
+                        <ul>
+                            <li>Fall &amp; Spring 2022, Fall 2021, Fall &amp; Spring 2020</li>
+                            <li>Recognition of Honorable Academic Achievement</li>
+                            <li>Issued by SKK Business School</li>
+                        </ul>
+                        <li><b>The Next Century Humanities Scholarship</b></li>
+                        <ul>
+                            <li>Full Scholarship for 2 years(4 semesters)</li>
+                            <li>National scholarship for undergraduates in humanities and social sciences who have demonstrated their potentials to be the leaders in those fields</li>
+                            <li>Issued by Ministry of Education</li>
+                        </ul>
+                        <li><b>SKKU Academic Excellence Scholarship</b></li>
+                        <ul>
+                            <li>Received full scholarship for Fall 2020 &amp; Spring 2021</li>
+                            <li>For being one of the Top 3 GBA students who achieved academic excellence</li>
+                            <li>Issued by SKK Business School</li>
+                        </ul>
+                        <li><b>German Reciting Contest</b></li>
+                        <ul>
+                            <li>8 Finalist</li>
+                            <li>Issued by Goethe Institute</li>
+                        </ul>
+                        <li><b>Zertifikat Deutsch(Goethe-German Certificate): B1</b></li>
+                    </ul>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery 섹션 -->
+    <div class="gallery-section visible" id="gallery">
+        <div class="gallery-container">
+            <div class="gallery">
+                <div class="gallery-item visible">
+                    <img src="IMG_6957.JPG" alt="Image description">
+                    <div class="overlay">
+                        <div class="text">Your Image Description</div>
+                    </div>
+                </div>
+                <div class="gallery-item visible">
+                    <img src="seos.jpg" alt="Image description">
+                    <div class="overlay">
+                        <div class="text">Your Image Description</div>
+                    </div>
+                </div>
+                <!-- 필요한 만큼 gallery-item을 추가하세요 -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+document.addEventListener('scroll', function () {
+    const profileSection = document.getElementById('profile');
+    const gallerySection = document.getElementById('gallery');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const profileSectionTop = profileSection.getBoundingClientRect().top;
+    const profileSectionBottom = profileSection.getBoundingClientRect().bottom;
+    const gallerySectionTop = gallerySection.getBoundingClientRect().top;
+    const gallerySectionBottom = gallerySection.getBoundingClientRect().bottom;
+    const windowHeight = window.innerHeight;
+
+    // Profile 섹션 애니메이션
+    if (profileSectionTop < windowHeight && profileSectionBottom > 0) {
+        if (!profileSection.classList.contains('visible')) {
+            profileSection.classList.add('visible');
+        }
+    } else if (profileSectionBottom <= 0 || profileSectionTop >= windowHeight) {
+        if (profileSection.classList.contains('visible')) {
+            profileSection.classList.remove('visible');
+        }
+    }
+
+    // Gallery 섹션 애니메이션
+    if (gallerySectionTop < windowHeight && gallerySectionBottom > 0) {
+        if (!gallerySection.classList.contains('visible')) {
+            gallerySection.classList.add('visible');
+        }
+        galleryItems.forEach(item => {
+            const itemTop = item.getBoundingClientRect().top;
+            const itemBottom = item.getBoundingClientRect().bottom;
+            if (itemTop < windowHeight && itemBottom > 0) {
+                item.classList.add('visible');
+            }
+        });
+    } else if (gallerySectionBottom <= 0 || gallerySectionTop >= windowHeight) {
+        if (gallerySection.classList.contains('visible')) {
+            gallerySection.classList.remove('visible');
+        }
+        galleryItems.forEach(item => {
+            if (item.classList.contains('visible')) {
+                item.classList.remove('visible');
+            }
+        });
+    }
+});
+
+    </script>
+
+
+</body>
+</html>
