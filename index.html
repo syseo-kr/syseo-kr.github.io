@@ -208,6 +208,8 @@
     transition: transform 1s ease, opacity 1s ease; /* 애니메이션 효과 추가 */
     max-width: 60vw;  /* 최대 너비를 뷰포트 너비의 60%로 설정 */
     max-height: 50vh; /* 최대 높이를 뷰포트 높이의 50%로 설정 */
+    width: auto;
+    height: auto;
 }
 
 /* 가시성 활성화 시 적용될 스타일 */
@@ -219,11 +221,12 @@
 /* 갤러리 아이템 안의 이미지 스타일 */
 .gallery-item img {
     width: 100%;
-    height: auto; /* 비율을 유지하며 높이를 자동으로 조정 */
-    object-fit: contain; /* 이미지 비율을 유지하며 최대 크기에 맞춤 */
+    height: 100%;
+    object-fit: contain; /* 이미지 비율을 유지하며 크기에 맞춤, 잘리지 않음 */
     display: block;
     transition: opacity 0.5s ease; /* 페이드 효과 */
 }
+
 
 
 
@@ -528,23 +531,23 @@ window.addEventListener('load', function () {
         
         img.onload = function() {
             const aspectRatio = img.naturalWidth / img.naturalHeight;
-            
-            // 초기 설정: width는 최대 60vw, height는 비율에 따라 설정
-            let width = Math.min(item.clientWidth, window.innerWidth * 0.6);
+
+            let width = window.innerWidth * 0.6;  // 최대 너비를 60vw로 설정
             let height = width / aspectRatio;
-            
+
             // 만약 계산된 높이가 최대 높이(50vh)를 초과하면, 높이를 최대 높이로 설정하고 너비를 조정
             if (height > window.innerHeight * 0.5) {
                 height = window.innerHeight * 0.5;
                 width = height * aspectRatio;
             }
-            
+
             // 최종 크기 설정
             item.style.width = `${width}px`;
             item.style.height = `${height}px`;
         };
     });
 });
+
 
 
 
