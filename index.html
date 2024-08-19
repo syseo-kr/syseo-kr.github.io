@@ -333,17 +333,18 @@
     </div>
 
     <script>
-        document.addEventListener('scroll', function () {
-            const profileSection = document.getElementById('profile');
-            const mainContent = document.getElementById('home');
+	document.addEventListener('scroll', function () {
+    		const profileSection = document.getElementById('profile');
+    		const profileSectionTop = profileSection.getBoundingClientRect().top;
+    		const windowHeight = window.innerHeight;
 
-            const profileSectionTop = profileSection.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
+    		if (profileSectionTop < windowHeight && profileSectionTop > 0) {
+        		profileSection.classList.add('visible');
+    		} else {
+        		profileSection.classList.remove('visible');
+    		}
+	});
 
-            if (profileSectionTop < windowHeight) {
-                profileSection.classList.add('visible');
-            }
-        });
     </script>
 </body>
 </html>
