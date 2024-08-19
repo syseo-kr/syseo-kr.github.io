@@ -1,4 +1,6 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -195,22 +197,23 @@
         }
 
         /* Gallery 아이템 */
-.gallery-item {
-    position: relative;
-    width: 100%; /* 부모 컨테이너의 너비에 맞춤 */
-    max-width: 60%;
-    margin: 0 auto; /* 가운데 정렬 */
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 벽에 걸린 듯한 그림자 효과 */
-    background-color: white; /* 이미지 배경색 */
-    opacity: 0; /* 처음에 투명하게 설정 */
-    transform: translateY(100px); /* 초기 위치를 아래로 설정 */
-    transition: transform 1s ease, opacity 1s ease; /* 애니메이션 효과 추가 */
-}
-.gallery-item.visible {
-    opacity: 1;
-    transform: translateY(0); /* 스크롤 시 섹션이 위로 이동하며 보임 */
-}
+        .gallery-item {
+            position: relative;
+            width: 100%; /* 부모 컨테이너의 너비에 맞춤 */
+            max-width: 60%;
+            margin: 0 auto; /* 가운데 정렬 */
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 벽에 걸린 듯한 그림자 효과 */
+            background-color: white; /* 이미지 배경색 */
+            opacity: 0; /* 처음에 투명하게 설정 */
+            transform: translateY(100px); /* 초기 위치를 아래로 설정 */
+            transition: transform 1s ease, opacity 1s ease; /* 애니메이션 효과 추가 */
+        }
+
+        .gallery-item.visible {
+            opacity: 1;
+            transform: translateY(0); /* 스크롤 시 섹션이 위로 이동하며 보임 */
+        }
 
         .gallery-item img {
             width: 100%;
@@ -220,40 +223,52 @@
             transition: opacity 0.5s ease; /* 페이드 효과 */
         }
 
- /* 오버레이 및 텍스트 */
-.gallery-item .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* 반투명 검정 오버레이 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transform: translateX(-100%); /* 처음에 오버레이가 화면 왼쪽에 위치 */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* 페이드 및 이동 효과 */
-}
+        /* Gallery 아이템 내부의 페이드 효과 패널 */
+        .gallery-item .fade-panel {
+            position: absolute;
+            left: 0;
+            height: 100%;
+            width: 100%; /* 전체 이미지를 덮도록 설정 */
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+            z-index: 2; /* 이미지 위에 오도록 설정 */
+            transition: opacity 0.5s ease; /* 페이드 효과 추가 */
+            opacity: 0; /* 처음에는 보이지 않도록 설정 */
+        }
 
-.gallery-item .overlay .text {
-    color: white;
-    font-size: 1.5em;
-    text-align: center;
-}
+        /* Hover 시 페이드 효과가 보이도록 설정 */
+        .gallery-item:hover .fade-panel {
+            opacity: 1;
+        }
 
-/* Hover 효과 */
-.gallery-item:hover img {
-    opacity: 0.3; /* 이미지 투명도 설정 */
-}
+        /* Hover 시 오버레이와 텍스트가 보이도록 설정 */
+        .gallery-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* 반투명 검정 오버레이 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s ease; /* 페이드 효과 추가 */
+            z-index: 3; /* 페이드 패널보다 위에 오도록 설정 */
+        }
 
-.gallery-item:hover .overlay {
-    opacity: 1; /* 텍스트 오버레이가 보이도록 설정 */
-    transform: translateX(0); /* 오버레이가 원래 위치로 이동 */
-}
+        .gallery-item:hover .overlay {
+            opacity: 1; /* Hover 시 오버레이가 보이도록 설정 */
+        }
+
+        .gallery-item .overlay .text {
+            color: white;
+            font-size: 1.5em;
+            text-align: center;
+        }
+
     </style>
 </head>
-<body data-new-gr-c-s-check-loaded="14.1191.0" data-gr-ext-installed="">
+<body>
     <!-- 수직 메뉴 바 -->
     <ul class="vertical-menu">
         <div class="centered">
@@ -426,21 +441,20 @@
     <div class="gallery-section visible" id="gallery">
         <div class="gallery-container">
             <div class="gallery">
-<div class="gallery-item visible">
-    <div class="fade-panel"></div> <!-- 페이드 효과 패널 추가 -->
-    <img src="IMG_6957.JPG" alt="Image description">
-    <div class="overlay">
-        <div class="text">Your Image Description</div>
-    </div>
-</div>
-<div class="gallery-item visible">
-    <div class="fade-panel"></div> <!-- 페이드 효과 패널 추가 -->
-    <img src="seos.jpg" alt="Image description">
-    <div class="overlay">
-        <div class="text">Your Image Description</div>
-    </div>
-</div>
-
+                <div class="gallery-item visible">
+                    <div class="fade-panel"></div> <!-- 페이드 효과 패널 추가 -->
+                    <img src="IMG_6957.JPG" alt="Image description">
+                    <div class="overlay">
+                        <div class="text">Your Image Description</div>
+                    </div>
+                </div>
+                <div class="gallery-item visible">
+                    <div class="fade-panel"></div> <!-- 페이드 효과 패널 추가 -->
+                    <img src="seos.jpg" alt="Image description">
+                    <div class="overlay">
+                        <div class="text">Your Image Description</div>
+                    </div>
+                </div>
                 <!-- 필요한 만큼 gallery-item을 추가하세요 -->
             </div>
         </div>
@@ -493,7 +507,5 @@ document.addEventListener('scroll', function () {
 });
 
     </script>
-
-
 </body>
 </html>
