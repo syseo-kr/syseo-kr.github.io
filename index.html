@@ -521,7 +521,7 @@ window.addEventListener('load', function () {
 
     galleryItems.forEach(item => {
         const img = item.querySelector('img');
-        
+
         img.onload = function() {
             const aspectRatio = img.naturalWidth / img.naturalHeight;
 
@@ -542,9 +542,21 @@ window.addEventListener('load', function () {
                     item.style.height = `${window.innerWidth * 0.8 / aspectRatio}px`;
                 }
             }
+
+            // 다시 한 번 검증하여 최대 높이와 너비를 초과하지 않도록 보정
+            if (item.offsetWidth > window.innerWidth * 0.8) {
+                item.style.width = '80vw';
+                item.style.height = `${item.offsetWidth / aspectRatio}px`;
+            }
+
+            if (item.offsetHeight > window.innerHeight * 0.5) {
+                item.style.height = '50vh';
+                item.style.width = `${item.offsetHeight * aspectRatio}px`;
+            }
         };
     });
 });
+
 
 
         
