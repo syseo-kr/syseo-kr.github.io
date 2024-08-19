@@ -526,24 +526,27 @@ window.addEventListener('load', function () {
             const aspectRatio = img.naturalWidth / img.naturalHeight;
             
             let width, height;
+            const maxWidth = window.innerWidth * 0.85 * 0.6; // 수직 메뉴 바를 제외한 뷰포트 너비의 60%
+            const maxHeight = window.innerHeight * 0.5; // 뷰포트 높이의 50%
 
             // 가로로 긴 이미지일 때
             if (aspectRatio >= 1) {
-                width = Math.min(window.innerWidth * 0.6, img.naturalWidth);
+                width = Math.min(maxWidth, img.naturalWidth);
                 height = width / aspectRatio;
             } 
             // 세로로 긴 이미지일 때
             else {
-                height = Math.min(window.innerHeight * 0.5, img.naturalHeight);
+                height = Math.min(maxHeight, img.naturalHeight);
                 width = height * aspectRatio;
             }
-            
+
             // 최종 크기 설정
             item.style.width = `${width}px`;
             item.style.height = `${height}px`;
         };
     });
 });
+
 
 
 
