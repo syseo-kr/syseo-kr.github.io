@@ -97,9 +97,13 @@
             padding: 0 0 15px 0; /* 각 요소에 하단 패딩 추가 */
         }
 	
-	    .centered {
+	.centered {
             text-align: center; /* 이 클래스가 적용된 텍스트만 가운데 정렬 */
         }
+
+	.centered a{
+		margin: 40px 0;
+	}
 
         /* Profile section styles */
         .profile-section {
@@ -159,14 +163,14 @@
 
 <body>
     <!-- 수직 메뉴 바 -->
-    <ul class="vertical-menu">
+    <div class="vertical-menu">
         <div class="centered">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#profile">Profile</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <a href="#home">Home</a>
+            <a href="#profile">Profile</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
         </div>
-    </ul>
+    </div>
 
     <!-- 첫 번째 섹션: 메인 컨텐츠 영역 -->
     <div class="main-content" id="home">
