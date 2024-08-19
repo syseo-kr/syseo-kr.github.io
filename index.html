@@ -521,41 +521,36 @@ window.addEventListener('load', function () {
 
     galleryItems.forEach(item => {
         const img = item.querySelector('img');
-
+        
         img.onload = function() {
             const aspectRatio = img.naturalWidth / img.naturalHeight;
+            let newWidth, newHeight;
 
             if (aspectRatio > 1) { // 가로로 긴 이미지인 경우
-                item.style.width = '80vw'; // 최대 너비 설정
-                item.style.height = `${item.offsetWidth / aspectRatio}px`; // 비율에 맞춰 높이 설정
-
-                if (item.offsetHeight > window.innerHeight * 0.5) { // 높이가 최대 높이를 넘으면
-                    item.style.height = '50vh';
-                    item.style.width = `${window.innerHeight * 0.5 * aspectRatio}px`;
-                }
+                newWidth = window.innerWidth * 0.6; // 최대 너비를 60vw로 설정
+                newHeight = newWidth / aspectRatio; // 비율에 맞춰 높이 계산
             } else { // 세로로 긴 이미지인 경우
-                item.style.height = '50vh'; // 최대 높이 설정
-                item.style.width = `${item.offsetHeight * aspectRatio}px`; // 비율에 맞춰 너비 설정
-
-                if (item.offsetWidth > window.innerWidth * 0.8) { // 너비가 최대 너비를 넘으면
-                    item.style.width = '80vw';
-                    item.style.height = `${window.innerWidth * 0.8 / aspectRatio}px`;
-                }
+                newHeight = window.innerHeight * 0.5; // 최대 높이를 50vh로 설정
+                newWidth = newHeight * aspectRatio; // 비율에 맞춰 너비 계산
             }
 
-            // 다시 한 번 검증하여 최대 높이와 너비를 초과하지 않도록 보정
-            if (item.offsetWidth > window.innerWidth * 0.8) {
-                item.style.width = '80vw';
-                item.style.height = `${item.offsetWidth / aspectRatio}px`;
+            // 너비와 높이를 다시 한 번 제한하여 최대 크기를 넘지 않도록 보정
+            if (newHeight > window.innerHeight * 0.5) {
+                newHeight = window.innerHeight * 0.5;
+                newWidth = newHeight * aspectRatio;
+            }
+            if (newWidth > window.innerWidth * 0.6) {
+                newWidth = window.innerWidth * 0.6;
+                newHeight = newWidth / aspectRatio;
             }
 
-            if (item.offsetHeight > window.innerHeight * 0.5) {
-                item.style.height = '50vh';
-                item.style.width = `${item.offsetHeight * aspectRatio}px`;
-            }
+            // 최종 계산된 크기 적용
+            item.style.width = `${newWidth}px`;
+            item.style.height = `${newHeight}px`;
         };
     });
 });
+
 
 
 
