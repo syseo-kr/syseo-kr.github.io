@@ -18,7 +18,7 @@
             background-color: #f0f0f0;
             overflow-x: hidden; /* 수평 스크롤 숨기기 */
             scroll-behavior: smooth; /* 부드러운 스크롤 */
-            font-size: 1em; /* 기본 폰트 크기를 1em으로 설정 */
+            font-size: 1em; /* 기본 폰트 크기를 1em으로 설정 (16px) */
         }
 
         /* 수직 메뉴 바 스타일 */
@@ -38,10 +38,10 @@
         }
 
         .vertical-menu a {
-            padding: 15px 30px; /* 상하 패딩을 20px으로 설정하여 간격 넓히기 */
+            padding: 0.9375em 1.875em; /* 15px 30px => 0.9375em 1.875em */
             text-decoration: none;
             color: gray;
-            font-size: 20px;
+            font-size: 1.25em; /* 20px => 1.25em */
             text-align: center;
             transition: color 0.3s ease;
         }
@@ -76,7 +76,7 @@
             position: absolute;
             left: 0;
             height: 100%;
-            width: 60%; /* 화면의 35%만큼 페이드 패널 차지 */
+            width: 60%; /* 화면의 60%만큼 페이드 패널 차지 */
             background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
             z-index: 2; /* 이미지 위에 오도록 설정 */
         }
@@ -119,13 +119,13 @@
 
         /* Profile section styles */
         .profile-section {
-            padding-top: 100px; /* 위쪽 여백 */
-            padding-bottom: 50px;
+            padding-top: 6.25em; /* 100px => 6.25em */
+            padding-bottom: 3.125em; /* 50px => 3.125em */
             min-height: 100vh;
             background-color: #f0f0f0;
             box-sizing: border-box;
             opacity: 0;
-            transform: translateY(100px); /* 초기 위치를 아래로 설정 */
+            transform: translateY(6.25em); /* 100px => 6.25em */
             transition: transform 1s ease, opacity 1s ease; /* 애니메이션 효과 추가 */
             position: relative;
             width: 100%;
@@ -149,30 +149,30 @@
 
         .container-profile {
             width: 100%;
-            max-width: 70vw;
-            padding: 20px 50px;
-            margin: 20px auto;
+            max-width: 43.75em; /* 70vw => 43.75em (약 700px) */
+            padding: 1.25em 3.125em; /* 20px 50px => 1.25em 3.125em */
+            margin: 1.25em auto; /* 20px => 1.25em */
             background-color: #ffffff;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            box-shadow: 0px 0px 0.625em rgba(0, 0, 0, 0.1); /* 10px => 0.625em */
+            border-radius: 0.5em; /* 8px => 0.5em */
             box-sizing: border-box;
         }
 
         hr {
             border: 0;
-            border-top: 1px solid #ccc;
-            margin: 20px 0;
+            border-top: 0.0625em solid #ccc; /* 1px => 0.0625em */
+            margin: 1.25em 0; /* 20px => 1.25em */
         }
 
         .profile-section ul {
             list-style-type: disc;
-            margin-left: 20px;
-            padding-left: 20px;
+            margin-left: 1.25em; /* 20px => 1.25em */
+            padding-left: 1.25em; /* 20px => 1.25em */
         }
 
         .profile-section ul ul {
             list-style-type: circle;
-            margin-left: 20px;
+            margin-left: 1.25em; /* 20px => 1.25em */
         }
 
         /* Gallery 섹션 */
@@ -181,11 +181,11 @@
             margin-right: 15vw; /* 메뉴 바 너비만큼 오른쪽 여백 추가 */
             width: calc(100% - 15vw); /* 화면의 80%에서 수직 메뉴 바 너비를 뺀 크기 */
             background-color: #333; /* 배경색 */
-            padding-top: 100px; /* 위쪽 여백 */
+            padding-top: 6.25em; /* 100px => 6.25em */
             min-height: 100vh;
             box-sizing: border-box;
             opacity: 0;
-            transform: translateY(100px); /* 초기 위치를 아래로 설정 */
+            transform: translateY(6.25em); /* 100px => 6.25em */
             transition: transform 1s ease, opacity 1s ease; /* 애니메이션 효과 추가 */
             position: relative;
             text-align: center;
@@ -200,7 +200,7 @@
         /* Gallery 컨테이너 */
         .gallery-container {
             margin: 0 auto; /* 가운데 정렬 */
-            padding: 50px 0; /* 위아래 여백 */
+            padding: 3.125em 0; /* 50px => 3.125em */
             display: flex;
             justify-content: center;
         }
@@ -209,7 +209,7 @@
         .gallery {
             display: flex;
             flex-wrap: wrap;
-            gap: 100px; /* 아이템 간의 간격 */
+            gap: 6.25em; /* 100px => 6.25em */
             justify-content: center;
             text-align: center;
             color: white;
@@ -218,16 +218,16 @@
         }
 
         .gallery-item {
-            max-width: 60vw; /* 수직 메뉴 바를 제외한 뷰포트 너비의 60% */
+            max-width: 37.5em; /* 60vw => 37.5em (약 600px) */
             width: auto; /* 기본 너비를 자동으로 설정 */
             height: auto; /* 기본 높이를 자동으로 설정 */
             position: relative;
             overflow: hidden;
             margin: 0 auto; /* 가운데 정렬 */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+            box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.2); /* 4px 8px => 0.25em 0.5em */
             background-color: white;
             opacity: 0; /* 처음에 투명하게 설정 */
-            transform: translateY(100px); /* 초기 위치를 아래로 설정 */
+            transform: translateY(6.25em); /* 100px => 6.25em */
             transition: transform 1s ease, opacity 1s ease; /* 애니메이션 효과 추가 */
         }
 
@@ -272,7 +272,7 @@
             line-height: 2;
             display: flex;
             justify-content: flex-start; /* 텍스트가 수평 중앙에 오도록 설정 */
-            padding-left: 40px;
+            padding-left: 2.5em; /* 40px => 2.5em */
             align-items: center; /* 텍스트가 세로 중앙에 오도록 설정 */
             opacity: 0;
             transition: opacity 0.5s ease; /* 페이드 효과 추가 */
@@ -299,23 +299,23 @@
             .hamburger-menu {
                 display: block;
                 position: fixed;
-                top: 20px;
-                right: 20px;
+                top: 1.25em; /* 20px => 1.25em */
+                right: 1.25em; /* 20px => 1.25em */
                 z-index: 1001;
                 cursor: pointer;
             }
 
             .hamburger-menu div {
-                width: 30px;
-                height: 4px;
+                width: 1.875em; /* 30px => 1.875em */
+                height: 0.25em; /* 4px => 0.25em */
                 background-color: #333;
-                margin: 6px 0;
+                margin: 0.375em 0; /* 6px => 0.375em */
                 transition: 0.4s;
             }
 
             /* 모바일에서 햄버거 메뉴 클릭 시 */
             .hamburger-menu.active div:nth-child(1) {
-                transform: rotate(-45deg) translate(-6px, 6px);
+                transform: rotate(-45deg) translate(-0.375em, 0.375em); /* 6px => 0.375em */
             }
 
             .hamburger-menu.active div:nth-child(2) {
@@ -323,7 +323,7 @@
             }
 
             .hamburger-menu.active div:nth-child(3) {
-                transform: rotate(45deg) translate(-6px, -6px);
+                transform: rotate(45deg) translate(-0.375em, -0.375em); /* 6px => 0.375em */
             }
 
             .vertical-menu.active {
@@ -347,7 +347,7 @@
             }
 
             .container-profile {
-                max-width: 90vw;
+                max-width: 56.25em; /* 90vw => 56.25em (약 900px) */
             }
 
             /* 글씨 크기 조정 */
@@ -417,21 +417,21 @@
                 <header>
                     <h1 class="centered">About Sooyon Seo</h1>
                     <div class="centered">
-                        <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=sooyon1119@g.skku.edu&amp;su=Subject&amp;body=Your%20message" target="_blank" style="margin: 0 15px; text-decoration: none;">
-                            <i class="fas fa-envelope" style="font-size:40px; color:#333;"></i>
+                        <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=sooyon1119@g.skku.edu&amp;su=Subject&amp;body=Your%20message" target="_blank" style="margin: 0 0.9375em; text-decoration: none;">
+                            <i class="fas fa-envelope" style="font-size:2.5em; color:#333;"></i> <!-- 40px => 2.5em -->
                         </a>
-                        <a href="https://www.instagram.com/ord_zhl_/" target="_blank" style="margin: 0 15px; text-decoration: none;">
-                            <i class="fab fa-instagram" style="font-size:40px; color:#E4405F;"></i>
+                        <a href="https://www.instagram.com/ord_zhl_/" target="_blank" style="margin: 0 0.9375em; text-decoration: none;">
+                            <i class="fab fa-instagram" style="font-size:2.5em; color:#E4405F;"></i> <!-- 40px => 2.5em -->
                         </a>
-                        <a href="https://www.linkedin.com/in/sooyon-seo/" target="_blank" style="margin: 0 15px; text-decoration: none;">
-                            <i class="fab fa-linkedin" style="font-size:40px; color:#0077B5;"></i>
+                        <a href="https://www.linkedin.com/in/sooyon-seo/" target="_blank" style="margin: 0 0.9375em; text-decoration: none;">
+                            <i class="fab fa-linkedin" style="font-size:2.5em; color:#0077B5;"></i> <!-- 40px => 2.5em -->
                         </a>
                     </div>
                 </header>
                 <div class="content">
                     <hr>
                     <h2>Introduction</h2>
-                    <img src="seos.jpg" width="72" height="96" alt="서수연 프로필" style="float: left; margin-right: 15px;">
+                    <img src="seos.jpg" width="4.5em" height="6em" alt="서수연 프로필" style="float: left; margin-right: 0.9375em;"> <!-- 72px 96px => 4.5em 6em, 15px => 0.9375em -->
                     <p>Hi, I am Sooyon Seo from South Korea.</p>
                     <p>I am currently pursuing a Ph.D. degree in Immersive Media Engineering at Sungkyunkwan University(SKKU), Seoul, Republic of Korea, and is researching at SWLab led by Prof. Moohong Min.<br>
                     My research interests include generative artificial intelligence, cybersecurity, and illegal online gambling.</p>
