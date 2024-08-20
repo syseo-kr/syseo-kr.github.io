@@ -173,7 +173,6 @@
             position: relative;
             text-align: center;
             color: white;
-            
         }
 
         .gallery-section.visible {
@@ -183,12 +182,10 @@
 
         /* Gallery 컨테이너 */
         .gallery-container {
-
             margin: 0 auto; /* 가운데 정렬 */
             padding: 50px 0; /* 위아래 여백 */
             display: flex;
             justify-content: center;
-
         }
 
         /* Gallery 내부 */
@@ -199,43 +196,33 @@
             justify-content: center;
         }
 
-.gallery-item {
-    max-width: 60vw; /* 수직 메뉴 바를 제외한 뷰포트 너비의 60% */
-    width: auto; /* 기본 너비를 자동으로 설정 */
-    height: auto; /* 기본 높이를 자동으로 설정 */
-    position: relative;
-    overflow: hidden;
-    margin: 0 auto; /* 가운데 정렬 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
-    background-color: white;
-    opacity: 0; /* 처음에 투명하게 설정 */
-    transform: translateY(100px); /* 초기 위치를 아래로 설정 */
-    transition: transform 1s ease, opacity 1s ease; /* 애니메이션 효과 추가 */
-}
+        .gallery-item {
+            max-width: 60vw; /* 수직 메뉴 바를 제외한 뷰포트 너비의 60% */
+            width: auto; /* 기본 너비를 자동으로 설정 */
+            height: auto; /* 기본 높이를 자동으로 설정 */
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto; /* 가운데 정렬 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+            background-color: white;
+            opacity: 0; /* 처음에 투명하게 설정 */
+            transform: translateY(100px); /* 초기 위치를 아래로 설정 */
+            transition: transform 1s ease, opacity 1s ease; /* 애니메이션 효과 추가 */
+        }
 
+        /* 가시성 활성화 시 적용될 스타일 */
+        .gallery-item.visible {
+            opacity: 1;
+            transform: translateY(0); /* 스크롤 시 섹션이 위로 이동하며 보임 */
+        }
 
-/* 가시성 활성화 시 적용될 스타일 */
-.gallery-item.visible {
-    opacity: 1;
-    transform: translateY(0); /* 스크롤 시 섹션이 위로 이동하며 보임 */
-}
-
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* 이미지 비율을 유지하며 최대 크기에 맞춤 */
-    display: block;
-    transition: opacity 0.5s ease; /* 페이드 효과 */
-}
-
-
-
-
-
-
-
-
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* 이미지 비율을 유지하며 최대 크기에 맞춤 */
+            display: block;
+            transition: opacity 0.5s ease; /* 페이드 효과 */
+        }
 
         /* Gallery 아이템 내부의 페이드 효과 패널 */
         .gallery-item .fade-panel {
@@ -279,8 +266,6 @@
             font-size: 1.5em;
             text-align: left; /* 텍스트 중앙 정렬 */
         }
-
-        
     </style>
 </head>
 <body>
@@ -456,120 +441,282 @@
     <div class="gallery-section visible" id="gallery">
         <div class="gallery-container">
             <div class="gallery">
-            <h1>Seo's Life with Pictures</h1>
+                <h1>Seo's Life with Pictures</h1>
                 <div class="gallery-item">
-    <div class="fade-panel"></div> <!-- 페이드 효과 패널 추가 -->
-    <img src="grad1.JPG" alt="Image description">
-    <div class="overlay">
-        <div class="text">Your Image Description</div>
-    </div>
-</div>
-<div class="gallery-item">
-    <div class="fade-panel"></div> <!-- 페이드 효과 패널 추가 -->
-    <img src="seos.jpg" alt="Image description">
-    <div class="overlay">
-        <div class="text">Your Image Description</div>
-    </div>
-</div>
-
-                <!-- 필요한 만큼 gallery-item을 추가하세요 -->
+                    <div class="fade-panel"></div>
+                    <img src="img/asiaccs24.JPG" alt="AsiaCCS 2024">
+                    <div class="overlay">
+                        <div class="text">AsiaCCS 2024</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="kcc24.JPG" alt="Korea Computer Congress 2024">
+                    <div class="overlay">
+                        <div class="text">Korea Computer Congress 2024</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="qatar1.heic" alt="Qatar Trip">
+                    <div class="overlay">
+                        <div class="text">Qatar Trip</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="sweden1.heic" alt="Sweden Visit">
+                    <div class="overlay">
+                        <div class="text">Sweden Visit</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="img/estonia1.heic" alt="Estonia Visit">
+                    <div class="overlay">
+                        <div class="text">Estonia Visit</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="finland1.heic" alt="Finland Visit">
+                    <div class="overlay">
+                        <div class="text">Finland Visit</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="poland_wroclaw1.heic" alt="Poland Wroclaw 1">
+                    <div class="overlay">
+                        <div class="text">Poland Wroclaw 1</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="poland_wroclaw2.HEIC" alt="Poland Wroclaw 2">
+                    <div class="overlay">
+                        <div class="text">Poland Wroclaw 2</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="img/cz1.heic" alt="Czech Republic Visit">
+                    <div class="overlay">
+                        <div class="text">Czech Republic Visit</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="hungary1.heic" alt="Hungary Visit">
+                    <div class="overlay">
+                        <div class="text">Hungary Visit</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="okinawa1.HEIC" alt="Okinawa 1">
+                    <div class="overlay">
+                        <div class="text">Okinawa 1</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="okinawa2.JPG" alt="Okinawa 2">
+                    <div class="overlay">
+                        <div class="text">Okinawa 2</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="okinawa3.JPG" alt="Okinawa 3">
+                    <div class="overlay">
+                        <div class="text">Okinawa 3</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="ideaton1.JPG" alt="Ideaton">
+                    <div class="overlay">
+                        <div class="text">Ideaton</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="chatbotsecurity1.JPG" alt="Chatbot Security">
+                    <div class="overlay">
+                        <div class="text">Chatbot Security</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="grad2.jpeg" alt="Graduation 2">
+                    <div class="overlay">
+                        <div class="text">Graduation 2</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="grad3.JPG" alt="Graduation 3">
+                    <div class="overlay">
+                        <div class="text">Graduation 3</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="fuk1.JPG" alt="Fukuoka 1">
+                    <div class="overlay">
+                        <div class="text">Fukuoka 1</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="fuk2.JPG" alt="Fukuoka 2">
+                    <div class="overlay">
+                        <div class="text">Fukuoka 2</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="kul1.heic" alt="Kuala Lumpur">
+                    <div class="overlay">
+                        <div class="text">Kuala Lumpur</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="sing1.HEIC" alt="Singapore">
+                    <div class="overlay">
+                        <div class="text">Singapore</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="lastcourse.JPG" alt="Last Course">
+                    <div class="overlay">
+                        <div class="text">Last Course</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="busan1.JPG" alt="Busan 1">
+                    <div class="overlay">
+                        <div class="text">Busan 1</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="busan2.HEIC" alt="Busan 2">
+                    <div class="overlay">
+                        <div class="text">Busan 2</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="kimyounghan.JPG" alt="Kim Younghan Event">
+                    <div class="overlay">
+                        <div class="text">Kim Younghan Event</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="gradpic.jpg" alt="Graduation Picture">
+                    <div class="overlay">
+                        <div class="text">Graduation Picture</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="fade-panel"></div>
+                    <img src="kra.JPG" alt="Korea Research Awards">
+                    <div class="overlay">
+                        <div class="text">Korea Research Awards</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-document.addEventListener('scroll', function () {
-    const profileSection = document.getElementById('profile');
-    const gallerySection = document.getElementById('gallery');
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    const profileSectionTop = profileSection.getBoundingClientRect().top;
-    const profileSectionBottom = profileSection.getBoundingClientRect().bottom;
-    const gallerySectionTop = gallerySection.getBoundingClientRect().top;
-    const gallerySectionBottom = gallerySection.getBoundingClientRect().bottom;
-    const windowHeight = window.innerHeight;
+        document.addEventListener('scroll', function () {
+            const profileSection = document.getElementById('profile');
+            const gallerySection = document.getElementById('gallery');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const profileSectionTop = profileSection.getBoundingClientRect().top;
+            const profileSectionBottom = profileSection.getBoundingClientRect().bottom;
+            const gallerySectionTop = gallerySection.getBoundingClientRect().top;
+            const gallerySectionBottom = gallerySection.getBoundingClientRect().bottom;
+            const windowHeight = window.innerHeight;
 
-    // Profile 섹션 애니메이션
-    if (profileSectionTop < windowHeight && profileSectionBottom > 0) {
-        if (!profileSection.classList.contains('visible')) {
-            profileSection.classList.add('visible');
-        }
-    } else if (profileSectionBottom <= 0 || profileSectionTop >= windowHeight) {
-        if (profileSection.classList.contains('visible')) {
-            profileSection.classList.remove('visible');
-        }
-    }
-
-    // Gallery 섹션 애니메이션
-    if (gallerySectionTop < windowHeight && gallerySectionBottom > 0) {
-        if (!gallerySection.classList.contains('visible')) {
-            gallerySection.classList.add('visible');
-        }
-        galleryItems.forEach(item => {
-            const itemTop = item.getBoundingClientRect().top;
-            const itemBottom = item.getBoundingClientRect().bottom;
-            if (itemTop < windowHeight && itemBottom > 0) {
-                item.classList.add('visible');
-            }
-        });
-    } else if (gallerySectionBottom <= 0 || gallerySectionTop >= windowHeight) {
-        if (gallerySection.classList.contains('visible')) {
-            gallerySection.classList.remove('visible');
-        }
-        galleryItems.forEach(item => {
-            if (item.classList.contains('visible')) {
-                item.classList.remove('visible');
-            }
-        });
-    }
-});
-
-
-window.addEventListener('load', function () {
-    const galleryItems = document.querySelectorAll('.gallery-item');
-
-    galleryItems.forEach(item => {
-        const img = item.querySelector('img');
-        
-        img.onload = function() {
-            const aspectRatio = img.naturalWidth / img.naturalHeight;
-
-            let width = img.naturalWidth;
-            let height = img.naturalHeight;
-
-            const maxWidth = window.innerWidth * 0.85 * 0.6; // 뷰포트 너비의 60%
-            const maxHeight = window.innerHeight * 0.5; // 뷰포트 높이의 50%
-
-            // 가로로 긴 이미지일 때
-            if (aspectRatio >= 1) {
-                if (width > maxWidth) {
-                    width = maxWidth;
-                    height = width / aspectRatio;
+            // Profile 섹션 애니메이션
+            if (profileSectionTop < windowHeight && profileSectionBottom > 0) {
+                if (!profileSection.classList.contains('visible')) {
+                    profileSection.classList.add('visible');
                 }
-            } 
-            // 세로로 긴 이미지일 때
-            else {
-                if (height > maxHeight) {
-                    height = maxHeight;
-                    width = height * aspectRatio;
+            } else if (profileSectionBottom <= 0 || profileSectionTop >= windowHeight) {
+                if (profileSection.classList.contains('visible')) {
+                    profileSection.classList.remove('visible');
                 }
             }
 
-            // 최종 크기 설정
-            item.style.width = `${width}px`;
-            item.style.height = `${height}px`;
-        };
-    });
-});
+            // Gallery 섹션 애니메이션
+            if (gallerySectionTop < windowHeight && gallerySectionBottom > 0) {
+                if (!gallerySection.classList.contains('visible')) {
+                    gallerySection.classList.add('visible');
+                }
+                galleryItems.forEach(item => {
+                    const itemTop = item.getBoundingClientRect().top;
+                    const itemBottom = item.getBoundingClientRect().bottom;
+                    if (itemTop < windowHeight && itemBottom > 0) {
+                        item.classList.add('visible');
+                    }
+                });
+            } else if (gallerySectionBottom <= 0 || gallerySectionTop >= windowHeight) {
+                if (gallerySection.classList.contains('visible')) {
+                    gallerySection.classList.remove('visible');
+                }
+                galleryItems.forEach(item => {
+                    if (item.classList.contains('visible')) {
+                        item.classList.remove('visible');
+                    }
+                });
+            }
+        });
 
+        window.addEventListener('load', function () {
+            const galleryItems = document.querySelectorAll('.gallery-item');
 
+            galleryItems.forEach(item => {
+                const img = item.querySelector('img');
+                
+                img.onload = function() {
+                    const aspectRatio = img.naturalWidth / img.naturalHeight;
 
+                    let width = img.naturalWidth;
+                    let height = img.naturalHeight;
 
+                    const maxWidth = window.innerWidth * 0.85 * 0.6; // 뷰포트 너비의 60%
+                    const maxHeight = window.innerHeight * 0.5; // 뷰포트 높이의 50%
 
+                    // 가로로 긴 이미지일 때
+                    if (aspectRatio >= 1) {
+                        if (width > maxWidth) {
+                            width = maxWidth;
+                            height = width / aspectRatio;
+                        }
+                    } 
+                    // 세로로 긴 이미지일 때
+                    else {
+                        if (height > maxHeight) {
+                            height = maxHeight;
+                            width = height * aspectRatio;
+                        }
+                    }
 
-
-
-        
-
+                    // 최종 크기 설정
+                    item.style.width = `${width}px`;
+                    item.style.height = `${height}px`;
+                };
+            });
+        });
     </script>
 </body>
 </html>
