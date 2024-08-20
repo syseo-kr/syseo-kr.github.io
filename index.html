@@ -372,9 +372,10 @@
             }
         }
 
-            
+                /* 모바일 환경에서 다른 center-image와 intro-text 사용 */
+        @media only screen and (max-width: 768px) {
             .center-image {
-                content: url('seos.jpg'); /* 모바일에서 사용할 이미지 */
+                content: url('mobile_center_image.jpg'); /* 모바일에서 사용할 이미지 */
             }
 
             .intro-text {
@@ -390,7 +391,10 @@
             .intro-text p {
                 line-height: 1.2;
             }
-        
+        }
+
+        /* 모바일 환경에서 갤러리 이미지 크기 조정 */
+        @media only screen and (max-width: 768px) {
             .gallery-item {
                 width: 90vw; /* 갤러리 아이템의 너비를 조정 */
                 height: auto; /* 높이도 자동으로 맞춤 */
@@ -401,6 +405,7 @@
                 font-size: 1.2em; /* 기본 크기 조정 */
             }
         }
+        
     </style>
 </head>
 <body>
