@@ -785,6 +785,52 @@ window.addEventListener('load', function () {
                 });
             });
         }
+
+        
+document.addEventListener('scroll', function () {
+    const sections = document.querySelectorAll('div[id]');
+    const menuLinks = document.querySelectorAll('.vertical-menu a');
+
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const sectionTop = rect.top;
+        const sectionBottom = rect.bottom;
+        const windowHeight = window.innerHeight;
+        const sectionId = section.id;
+
+        if (sectionTop < windowHeight / 2 && sectionBottom > windowHeight / 2) {
+            menuLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(sectionId)) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+});
+
+window.addEventListener('load', function () {
+    const sections = document.querySelectorAll('div[id]');
+    const menuLinks = document.querySelectorAll('.vertical-menu a');
+
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const sectionTop = rect.top;
+        const sectionBottom = rect.bottom;
+        const windowHeight = window.innerHeight;
+        const sectionId = section.id;
+
+        if (sectionTop < windowHeight / 2 && sectionBottom > windowHeight / 2) {
+            menuLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(sectionId)) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+});
+
     </script>
 </body>
 </html>
