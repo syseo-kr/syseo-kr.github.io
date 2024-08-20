@@ -577,12 +577,12 @@
         });
 
         window.addEventListener('load', function () {
-            const galleryItems = document.querySelectorAll('.gallery-item');
+            function adjustImageSizes() {
+                const galleryItems = document.querySelectorAll('.gallery-item');
 
-            galleryItems.forEach(item => {
-                const img = item.querySelector('img');
-                
-                img.onload = function() {
+                galleryItems.forEach(item => {
+                    const img = item.querySelector('img');
+                    
                     const aspectRatio = img.naturalWidth / img.naturalHeight;
 
                     let width = img.naturalWidth;
@@ -609,9 +609,13 @@
                     // 최종 크기 설정
                     item.style.width = `${width}px`;
                     item.style.height = `${height}px`;
-                };
-            });
+                });
+            }
+
+            adjustImageSizes(); // 초기 로딩 시 이미지 크기 조정
+            window.addEventListener('resize', adjustImageSizes); // 윈도우 크기 변경 시 이미지 크기 재조정
         });
+
     </script>
 </body>
 </html>
