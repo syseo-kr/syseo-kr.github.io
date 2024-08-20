@@ -718,47 +718,45 @@
             }
         });
 
-        window.addEventListener('load', function () {
-            function adjustImageSizes() {
-                const galleryItems = document.querySelectorAll('.gallery-item');
+window.addEventListener('load', function () {
+    function adjustImageSizes() {
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const isMobile = window.innerWidth <= 768; // 모바일 환경 감지
 
-                galleryItems.forEach(item => {
-                    const img = item.querySelector('img');
-                    
-                    const aspectRatio = img.naturalWidth / img.naturalHeight;
+        galleryItems.forEach(item => {
+            const img = item.querySelector('img');
+            const aspectRatio = img.naturalWidth / img.naturalHeight;
 
-                    let width = img.naturalWidth;
-                    let height = img.naturalHeight;
+            let width = img.naturalWidth;
+            let height = img.naturalHeight;
 
-                    const maxWidth = window.innerWidth * 0.85 * 0.6; // 뷰포트 너비의 60%
-                    const maxHeight = window.innerHeight * 0.5; // 뷰포트 높이의 50%
+            const maxWidth = isMobile ? window.innerWidth * 0.8 : window.innerWidth * 0.85 * 0.6; // 모바일에서는 0.9, 웹에서는 0.85 * 0.6
+            const maxHeight = window.innerHeight * 0.5; // 뷰포트 높이의 50%
 
-                    // 가로로 긴 이미지일 때
-                    if (aspectRatio >= 1) {
-                        if (width > maxWidth) {
-                            width = maxWidth;
-                            height = width / aspectRatio;
-                        }
-                    } 
-                    // 세로로 긴 이미지일 때
-                    else {
-                        if (height > maxHeight) {
-                            height = maxHeight;
-                            width = height * aspectRatio;
-                        }
-                    }
-
-                    // 최종 크기 설정
-                    item.style.width = `${width}px`;
-                    item.style.height = `${height}px`;
-                   
-                    
-                });
+            // 가로로 긴 이미지일 때
+            if (aspectRatio >= 1) {
+                if (width > maxWidth) {
+                    width = maxWidth;
+                    height = width / aspectRatio;
+                }
+            } 
+            // 세로로 긴 이미지일 때
+            else {
+                if (height > maxHeight) {
+                    height = maxHeight;
+                    width = height * aspectRatio;
+                }
             }
 
-            adjustImageSizes(); // 초기 로딩 시 이미지 크기 조정
-            window.addEventListener('resize', adjustImageSizes); // 윈도우 크기 변경 시 이미지 크기 재조정
+            // 최종 크기 설정
+            item.style.width = `${width}px`;
+            item.style.height = `${height}px`;
         });
+    }
+
+    adjustImageSizes(); // 초기 로딩 시 이미지 크기 조정
+    window.addEventListener('resize', adjustImageSizes); // 윈도우 크기 변경 시 이미지 크기 재조정
+});
 
         function toggleMenu() {
             const menu = document.querySelector('.vertical-menu');
