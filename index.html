@@ -10,245 +10,267 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&amp;display=swap">
     <title>Seo Main</title>
     <style>
-/* 전체 페이지 설정 */
-body {
-    margin: 0;
-    height: 100%;
-    font-family: Lora, sans-serif;
-    background-color: #f0f0f0;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    font-size: 2rem; /* 기본 폰트 크기 설정 */
-}
+        /* 전체 페이지 설정 */
+        body {
+            margin: 0;
+            height: 100%;
+            font-family: Lora, sans-serif;
+            background-color: #f0f0f0;
+            overflow-x: hidden; /* 수평 스크롤 숨기기 */
+            scroll-behavior: smooth; /* 부드러운 스크롤 */
+        }
 
-/* 수직 메뉴 바 스타일 */
-.vertical-menu {
-    width: 15vw; /* 전체 화면 너비의 15% */
-    background-color: #333;
-    color: white;
-    list-style-type: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100%;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 1rem; /* 기본 폰트 크기에 따라 조정됨 */
-}
+        /* 수직 메뉴 바 스타일 */
+        .vertical-menu {
+            width: 15vw;
+            background-color: #333;
+            color: white;
+            list-style-type: none;
+            position: fixed;
+            top: 0;
+            right: 0; /* 오른쪽에 메뉴 바 고정 */
+            height: 100%;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-.vertical-menu a {
-    padding: 1rem 2rem; /* 폰트 크기에 따라 패딩 조정 */
-    text-decoration: none;
-    color: gray;
-    font-size: 1.25rem; /* 기본 폰트 크기의 1.25배 */
-    text-align: center;
-    transition: color 0.3s ease;
-}
+        .vertical-menu a {
+            padding: 15px 30px; /* 상하 패딩을 20px으로 설정하여 간격 넓히기 */
+            text-decoration: none;
+            color: gray;
+            font-size: 20px;
+            text-align: center;
+            transition: color 0.3s ease;
+        }
 
-.vertical-menu a:hover {
-    color: white;
-}
+        .vertical-menu a:hover {
+            color: white;
+        }
 
-/* 첫 번째 섹션: 메인 컨텐츠 영역 */
-.main-content {
-    width: 85vw; /* 화면 너비에서 메뉴 바 너비를 뺀 크기 */
-    position: relative;
-    overflow: hidden;
-}
+        /* 활성화된 메뉴 항목 스타일 */
+        .vertical-menu a.active {
+            color: white;
+        }
 
-.center-image {
-    width: 100%;
-    min-height: 100vh; /* 최소 높이를 화면 높이에 맞춤 */
-    object-fit: cover; /* 이미지가 비율을 유지하면서 영역을 가득 채우도록 설정 */
-    position: relative;
-    z-index: 1;
-}
+        /* 첫 번째 섹션: 메인 컨텐츠 영역 */
+        .main-content {
+            width: 85vw; /* 화면 너비에서 메뉴 바 너비를 뺀 크기 */
+            position: relative;
+            overflow: hidden; /* 스크롤 숨기기 */
+        }
 
-/* 페이드 효과를 위한 왼쪽 패널 */
-.fade-panel {
-    position: absolute;
-    left: 0;
-    height: 100%;
-    width: 60%; /* 화면의 60%만큼 페이드 패널 차지 */
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
-    z-index: 2;
-}
+        /* 중앙 이미지 스타일 */
+        .center-image {
+            width: 100%;
+            min-height: 100vh; /* 최소 높이를 화면 높이에 맞춤 */
+            object-fit: cover; /* 이미지가 비율을 유지하면서 영역을 가득 채우도록 설정 */
+            position: relative;
+            z-index: 1;
+        }
 
-/* 소개글 스타일 */
-.intro-text {
-    position: absolute;
-    left: 5%; /* 이미지 왼쪽에 위치 */
-    max-width: 40%; /* 소개글의 너비를 설정 */
-    color: white;
-    z-index: 3;
-    font-size: 1.5rem; /* 폰트 크기를 반응형으로 설정 */
-    top: 20%; /* 텍스트가 상단에서부터 얼마나 떨어져 있는지 설정 */
-}
+        /* 페이드 효과를 위한 왼쪽 패널 */
+        .fade-panel {
+            position: absolute;
+            left: 0;
+            height: 100%;
+            width: 60%; /* 화면의 35%만큼 페이드 패널 차지 */
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+            z-index: 2; /* 이미지 위에 오도록 설정 */
+        }
 
-h1, h2, h3, p, ul, li, a {
-    margin: 0;
-    padding: 0 0 1rem 0; /* 각 요소에 하단 패딩 추가 */
-    font-size: 1rem; /* 기본 폰트 크기를 기준으로 설정 */
-}
+        /* 소개글 스타일 */
+        .intro-text {
+            position: absolute;
+            left: 5%; /* 이미지 왼쪽에 위치 */
+            max-width: 40%; /* 소개글의 너비를 설정 */
+            color: white;
+            z-index: 3;
+            font-size: 1.4em;
+            top: 20%; /* 텍스트가 상단에서부터 얼마나 떨어져 있는지 설정 */
+        }
 
-.centered {
-    text-align: center;
-}
+        h1, h2, h3, p, ul, li, a {
+            margin: 0;
+            padding: 0 0 15px 0; /* 각 요소에 하단 패딩 추가 */
+        }
 
-/* Profile section styles */
-.profile-section {
-    padding-top: 5vh; /* 화면 높이의 5%만큼 위쪽 여백 */
-    padding-bottom: 2.5vh; /* 화면 높이의 2.5%만큼 아래쪽 여백 */
-    min-height: 100vh;
-    background-color: #f0f0f0;
-    box-sizing: border-box;
-    opacity: 0;
-    transform: translateY(10vh); /* 초기 위치를 아래로 설정 (화면 높이의 10%) */
-    transition: transform 1s ease, opacity 1s ease;
-    position: relative;
-    width: 100%;
-}
+        .centered {
+            text-align: center; /* 이 클래스가 적용된 텍스트만 가운데 정렬 */
+        }
 
-.profile-section.visible {
-    opacity: 1;
-    transform: translateY(0); /* 스크롤 시 섹션이 위로 이동하며 보임 */
-}
+        /* Profile section styles */
+        .profile-section {
+            padding-top: 100px; /* 위쪽 여백 */
+            padding-bottom: 50px;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(100px); /* 초기 위치를 아래로 설정 */
+            transition: transform 1s ease, opacity 1s ease; /* 애니메이션 효과 추가 */
+            position: relative;
+            width: 100%;
+        }
 
-.main-content-profile {
-    margin-left: auto;
-    margin-right: 15vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: calc(100% - 15vw);
-    box-sizing: border-box;
-    min-height: 100vh;
-}
+        .profile-section.visible {
+            opacity: 1;
+            transform: translateY(0); /* 스크롤 시 섹션이 위로 이동하며 보임 */
+        }
 
-.container-profile {
-    width: 100%;
-    max-width: 70vw; /* 화면 너비의 70%로 설정 */
-    padding: 2rem 3rem; /* 폰트 크기에 따라 패딩 조정 */
-    margin: 2rem auto;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 1rem rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    box-sizing: border-box;
-}
+        .main-content-profile {
+            margin-left: auto;
+            margin-right: 15vw; /* 메뉴 바 너비만큼 오른쪽 여백 추가 */
+            display: flex;
+            justify-content: center; /* 수평 중앙 정렬 */
+            align-items: center; /* 수직 중앙 정렬 */
+            width: calc(100% - 15vw);
+            box-sizing: border-box;
+            min-height: 100vh; /* 남은 공간 전체를 사용 */
+        }
 
-/* Gallery 섹션 */
-.gallery-section {
-    margin-left: auto;
-    margin-right: 15vw;
-    width: calc(100% - 15vw);
-    background-color: #333;
-    padding-top: 5vh;
-    min-height: 100vh;
-    box-sizing: border-box;
-    opacity: 0;
-    transform: translateY(10vh); /* 초기 위치를 아래로 설정 */
-    transition: transform 1s ease, opacity 1s ease;
-    position: relative;
-    text-align: center;
-    color: white;
-}
+        .container-profile {
+            width: 100%;
+            max-width: 70vw;
+            padding: 20px 50px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
 
-.gallery-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+        hr {
+            border: 0;
+            border-top: 1px solid #ccc;
+            margin: 20px 0;
+        }
 
-/* Gallery 컨테이너 */
-.gallery-container {
-    margin: 0 auto;
-    padding: 5vh 0; /* 위아래 여백을 반응형으로 조정 */
-    display: flex;
-    justify-content: center;
-}
+        .profile-section ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding-left: 20px;
+        }
 
-/* Gallery 내부 */
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5vw; /* 아이템 간의 간격을 화면 너비에 따라 조정 */
-    justify-content: center;
-    text-align: center;
-    color: white;
-    flex-direction: column;
-    align-items: center;
-}
+        .profile-section ul ul {
+            list-style-type: circle;
+            margin-left: 20px;
+        }
 
-.gallery-item {
-    max-width: 60vw;
-    width: auto;
-    height: auto;
-    position: relative;
-    overflow: hidden;
-    margin: 0 auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: white;
-    opacity: 0;
-    transform: translateY(10vh);
-    transition: transform 1s ease, opacity 1s ease;
-}
+        /* Gallery 섹션 */
+        .gallery-section {
+            margin-left: auto;
+            margin-right: 15vw; /* 메뉴 바 너비만큼 오른쪽 여백 추가 */
+            width: calc(100% - 15vw); /* 화면의 80%에서 수직 메뉴 바 너비를 뺀 크기 */
+            background-color: #333; /* 배경색 */
+            padding-top: 100px; /* 위쪽 여백 */
+            min-height: 100vh;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(100px); /* 초기 위치를 아래로 설정 */
+            transition: transform 1s ease, opacity 1s ease; /* 애니메이션 효과 추가 */
+            position: relative;
+            text-align: center;
+            color: white;
+        }
 
-.gallery-item.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+        .gallery-section.visible {
+            opacity: 1;
+            transform: translateY(0); /* 스크롤 시 섹션이 위로 이동하며 보임 */
+        }
 
-.gallery-item img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    transition: opacity 0.5s ease;
-}
+        /* Gallery 컨테이너 */
+        .gallery-container {
+            margin: 0 auto; /* 가운데 정렬 */
+            padding: 50px 0; /* 위아래 여백 */
+            display: flex;
+            justify-content: center;
+        }
 
-/* Gallery 아이템 내부의 페이드 효과 패널 */
-.gallery-item .fade-panel {
-    position: absolute;
-    left: 0;
-    height: 100%;
-    width: 60%;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
-    z-index: 2;
-    transition: opacity 0.5s ease;
-    opacity: 0;
-}
+        /* Gallery 내부 */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 100px; /* 아이템 간의 간격 */
+            justify-content: center;
+            text-align: center;
+            color: white;
+            flex-direction: column; /* 아이템을 세로로 정렬 */
+            align-items: center; /* 가운데 정렬 */
+        }
 
-.gallery-item:hover .fade-panel {
-    opacity: 1;
-}
+        .gallery-item {
+            max-width: 60vw; /* 수직 메뉴 바를 제외한 뷰포트 너비의 60% */
+            width: auto; /* 기본 너비를 자동으로 설정 */
+            height: auto; /* 기본 높이를 자동으로 설정 */
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto; /* 가운데 정렬 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+            background-color: white;
+            opacity: 0; /* 처음에 투명하게 설정 */
+            transform: translateY(100px); /* 초기 위치를 아래로 설정 */
+            transition: transform 1s ease, opacity 1s ease; /* 애니메이션 효과 추가 */
+        }
 
-.gallery-item .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 60%;
-    height: 100%;
-    line-height: 2;
-    display: flex;
-    justify-content: flex-start;
-    padding-left: 4rem;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    z-index: 3;
-}
+        /* 가시성 활성화 시 적용될 스타일 */
+        .gallery-item.visible {
+            opacity: 1;
+            transform: translateY(0); /* 스크롤 시 섹션이 위로 이동하며 보임 */
+        }
 
-.gallery-item:hover .overlay {
-    opacity: 1;
-}
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* 이미지 비율을 유지하며 최대 크기에 맞춤 */
+            display: block;
+            transition: opacity 0.5s ease; /* 페이드 효과 */
+        }
 
-.gallery-item .overlay .text {
-    color: white;
-    font-size: 1.5rem;
-    text-align: left;
-}
+        /* Gallery 아이템 내부의 페이드 효과 패널 */
+        .gallery-item .fade-panel {
+            position: absolute;
+            left: 0;
+            height: 100%;
+            width: 60%; /* 전체 이미지를 덮도록 설정 */
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+            z-index: 2; /* 이미지 위에 오도록 설정 */
+            transition: opacity 0.5s ease; /* 페이드 효과 추가 */
+            opacity: 0; /* 처음에는 보이지 않도록 설정 */
+        }
 
+        /* Hover 시 페이드 효과가 보이도록 설정 */
+        .gallery-item:hover .fade-panel {
+            opacity: 1;
+        }
+
+        /* Hover 시 오버레이와 텍스트가 보이도록 설정 */
+        .gallery-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60%;
+            height: 100%;
+            line-height: 2;
+            display: flex;
+            justify-content: flex-start; /* 텍스트가 수평 중앙에 오도록 설정 */
+            padding-left: 40px;
+            align-items: center; /* 텍스트가 세로 중앙에 오도록 설정 */
+            opacity: 0;
+            transition: opacity 0.5s ease; /* 페이드 효과 추가 */
+            z-index: 3; /* 페이드 패널보다 위에 오도록 설정 */
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1; /* Hover 시 오버레이가 보이도록 설정 */
+        }
+
+        .gallery-item .overlay .text {
+            color: white;
+            font-size: 1.5em;
+            text-align: left; /* 텍스트 중앙 정렬 */
+        }
     </style>
 </head>
 <body>
