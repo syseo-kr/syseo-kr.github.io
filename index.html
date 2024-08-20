@@ -729,8 +729,8 @@
                     let width = img.naturalWidth;
                     let height = img.naturalHeight;
 
-                    const maxWidth = window.innerWidth * 0.9; // 모바일에서 최대 너비를 90%로 설정
-                    const maxHeight = window.innerHeight * 0.5;
+                    const maxWidth = window.innerWidth * 0.6; // 뷰포트 너비의 60%
+                    const maxHeight = window.innerHeight * 0.5; // 뷰포트 높이의 50%
 
                     // 가로로 긴 이미지일 때
                     if (aspectRatio >= 1) {
@@ -748,12 +748,8 @@
                     }
 
                     // 최종 크기 설정
-                    item.style.width = `${width}px`;
-                    item.style.height = `${height}px`;
-
-                    // 이미지 크기에 비례하여 텍스트 크기 조정
-                    const overlayText = item.querySelector('.overlay .text');
-                    overlayText.style.fontSize = `${width / 15}px`; // 비례하는 텍스트 크기 설정
+                    item.style.width = ${width}px;
+                    item.style.height = ${height}px;
                 });
             }
 
