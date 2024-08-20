@@ -18,6 +18,7 @@
             background-color: #f0f0f0;
             overflow-x: hidden; /* 수평 스크롤 숨기기 */
             scroll-behavior: smooth; /* 부드러운 스크롤 */
+            font-size: 1em; /* 기본 폰트 크기를 1em으로 설정 */
         }
 
         /* 수직 메뉴 바 스타일 */
@@ -89,6 +90,22 @@
             z-index: 3;
             font-size: 1.4em;
             top: 20%; /* 텍스트가 상단에서부터 얼마나 떨어져 있는지 설정 */
+        }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
+        h2 {
+            font-size: 2em;
+        }
+
+        h3 {
+            font-size: 1.5em;
+        }
+
+        p, a {
+            font-size: 1em;
         }
 
         h1, h2, h3, p, ul, li, a {
@@ -271,9 +288,99 @@
             font-size: 1.5em;
             text-align: left; /* 텍스트 중앙 정렬 */
         }
+
+        /* 모바일 환경을 위한 반응형 디자인 */
+        @media only screen and (max-width: 768px) {
+            .vertical-menu {
+                display: none; /* 메뉴 바 숨기기 */
+            }
+
+            /* 모바일에서 햄버거 메뉴 추가 */
+            .hamburger-menu {
+                display: block;
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 1001;
+                cursor: pointer;
+            }
+
+            .hamburger-menu div {
+                width: 30px;
+                height: 4px;
+                background-color: #333;
+                margin: 6px 0;
+                transition: 0.4s;
+            }
+
+            /* 모바일에서 햄버거 메뉴 클릭 시 */
+            .hamburger-menu.active div:nth-child(1) {
+                transform: rotate(-45deg) translate(-6px, 6px);
+            }
+
+            .hamburger-menu.active div:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger-menu.active div:nth-child(3) {
+                transform: rotate(45deg) translate(-6px, -6px);
+            }
+
+            .vertical-menu.active {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 100vw;
+                height: 100vh;
+                background-color: #333;
+                z-index: 1000;
+            }
+
+            /* 모바일 환경에서 전체 화면을 사용하는 섹션 너비 */
+            .main-content, .main-content-profile, .gallery-section {
+                width: 100vw;
+                margin-right: 0;
+            }
+
+            .container-profile {
+                max-width: 90vw;
+            }
+
+            /* 글씨 크기 조정 */
+            body {
+                font-size: 0.9em; /* 모바일에서 글씨 크기 축소 */
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.2em;
+            }
+
+            p, a {
+                font-size: 0.9em;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- 햄버거 메뉴 추가 -->
+    <div class="hamburger-menu" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
     <!-- 수직 메뉴 바 -->
     <ul class="vertical-menu">
         <div class="centered">
@@ -616,6 +723,12 @@
             window.addEventListener('resize', adjustImageSizes); // 윈도우 크기 변경 시 이미지 크기 재조정
         });
 
+        function toggleMenu() {
+            const menu = document.querySelector('.vertical-menu');
+            const burger = document.querySelector('.hamburger-menu');
+            menu.classList.toggle('active');
+            burger.classList.toggle('active');
+        }
     </script>
 </body>
 </html>
