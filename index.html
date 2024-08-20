@@ -371,6 +371,40 @@
                 font-size: 0.9em;
             }
         }
+
+        /* 모바일 환경에서 다른 center-image와 intro-text 사용 */
+        @media only screen and (max-width: 768px) {
+            .center-image {
+                content: url('mobile_center_image.jpg'); /* 모바일에서 사용할 이미지 */
+            }
+
+            .intro-text {
+                font-size: 1.2em;
+                left: 5%;
+                max-width: 90%;
+            }
+
+            .intro-text h1 {
+                font-size: 2em;
+            }
+
+            .intro-text p {
+                line-height: 1.2;
+            }
+        }
+
+        /* 모바일 환경에서 갤러리 이미지 크기 조정 */
+        @media only screen and (max-width: 768px) {
+            .gallery-item {
+                width: 90vw; /* 갤러리 아이템의 너비를 조정 */
+                height: auto; /* 높이도 자동으로 맞춤 */
+            }
+
+            /* 갤러리 이미지 위의 텍스트 크기 조정 */
+            .gallery-item .overlay .text {
+                font-size: 1.2em; /* 기본 크기 조정 */
+            }
+        }
     </style>
 </head>
 <body>
@@ -695,8 +729,8 @@
                     let width = img.naturalWidth;
                     let height = img.naturalHeight;
 
-                    const maxWidth = window.innerWidth * 0.85 * 0.6; // 뷰포트 너비의 60%
-                    const maxHeight = window.innerHeight * 0.5; // 뷰포트 높이의 50%
+                    const maxWidth = window.innerWidth * 0.9; // 모바일에서 최대 너비를 90%로 설정
+                    const maxHeight = window.innerHeight * 0.5;
 
                     // 가로로 긴 이미지일 때
                     if (aspectRatio >= 1) {
@@ -716,6 +750,10 @@
                     // 최종 크기 설정
                     item.style.width = `${width}px`;
                     item.style.height = `${height}px`;
+
+                    // 이미지 크기에 비례하여 텍스트 크기 조정
+                    const overlayText = item.querySelector('.overlay .text');
+                    overlayText.style.fontSize = `${width / 15}px`; // 비례하는 텍스트 크기 설정
                 });
             }
 
@@ -728,6 +766,15 @@
             const burger = document.querySelector('.hamburger-menu');
             menu.classList.toggle('active');
             burger.classList.toggle('active');
+
+            // 메뉴 항목 클릭 시 메뉴 닫기
+            const menuItems = menu.querySelectorAll('a');
+            menuItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    menu.classList.remove('active');
+                    burger.classList.remove('active');
+                });
+            });
         }
     </script>
 </body>
