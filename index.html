@@ -374,7 +374,7 @@
 
             
             .center-image {
-                content: url('mobile_center_image.jpg'); /* 모바일에서 사용할 이미지 */
+                content: url('seos.jpg'); /* 모바일에서 사용할 이미지 */
             }
 
             .intro-text {
@@ -391,7 +391,7 @@
                 line-height: 1.2;
             }
         
-        .gallery-item {
+            .gallery-item {
                 width: 90vw; /* 갤러리 아이템의 너비를 조정 */
                 height: auto; /* 높이도 자동으로 맞춤 */
             }
@@ -748,9 +748,6 @@
                     item.style.height = `${height}px`;
                    
                     
-                    // 이미지 크기에 비례하여 텍스트 크기 조정
-                    const overlayText = item.querySelector('.overlay .text');
-                    overlayText.style.fontSize = `${width / 15}px`; // 비례하는 텍스트 크기 설정
                 });
             }
 
