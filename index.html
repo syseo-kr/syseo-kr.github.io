@@ -209,7 +209,7 @@
         .gallery {
             display: flex;
             flex-wrap: wrap;
-            gap: 100px; /* 아이템 간의 간격 */
+            gap: 5em; /* 아이템 간의 간격 */
             justify-content: center;
             text-align: center;
             color: white;
@@ -272,7 +272,7 @@
             line-height: 2;
             display: flex;
             justify-content: flex-start; /* 텍스트가 수평 중앙에 오도록 설정 */
-            padding-left: 40px;
+            padding-left: 2em;
             align-items: center; /* 텍스트가 세로 중앙에 오도록 설정 */
             opacity: 0;
             transition: opacity 0.5s ease; /* 페이드 효과 추가 */
@@ -395,9 +395,9 @@
 
         /* 모바일 환경에서 갤러리 이미지 크기 조정 */
         @media only screen and (max-width: 768px) {
+
             .gallery-item {
-                width: 100vw; /* 갤러리 아이템의 너비를 조정 */
-                height: auto; /* 높이도 자동으로 맞춤 */
+                max-width: 80vw; /* 수직 메뉴 바를 제외한 뷰포트 너비의 60% */
             }
 
             /* 갤러리 이미지 위의 텍스트 크기 조정 */
