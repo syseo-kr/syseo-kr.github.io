@@ -181,10 +181,19 @@
         }
         
         #others-content {
-            display: none;
-            transition: max-height 0.5s ease;
+            max-height: 0;
             overflow: hidden;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
         }
+
+        #others-content.visible {
+            max-height: 500px; /* Adjust based on content size */
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         
 
         /* Gallery 섹션 */
@@ -843,18 +852,19 @@ window.addEventListener('load', function () {
 });
 
 
-    document.getElementById('toggle-arrow').addEventListener('click', function () {
-        const othersContent = document.getElementById('others-content');
-        const arrow = document.getElementById('toggle-arrow');
-        
-        if (othersContent.style.display === 'none') {
-            othersContent.style.display = 'block';
-            arrow.classList.replace('fa-caret-down', 'fa-caret-up');
-        } else {
-            othersContent.style.display = 'none';
-            arrow.classList.replace('fa-caret-up', 'fa-caret-down');
-        }
-    });
+document.getElementById('toggle-arrow').addEventListener('click', function () {
+    const othersContent = document.getElementById('others-content');
+    const arrow = document.getElementById('toggle-arrow');
+    
+    if (!othersContent.classList.contains('visible')) {
+        othersContent.classList.add('visible');
+        arrow.classList.replace('fa-caret-down', 'fa-caret-up');
+    } else {
+        othersContent.classList.remove('visible');
+        arrow.classList.replace('fa-caret-up', 'fa-caret-down');
+    }
+});
+
 
 
     </script>
