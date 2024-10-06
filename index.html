@@ -181,17 +181,11 @@
         }
         
 #others-content {
-    display: none;
-    opacity: 0;
-    transform: translateY(100px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
 }
 
-#others-content.visible {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-}
 
 
         
@@ -855,21 +849,23 @@ window.addEventListener('load', function () {
 document.getElementById('toggle-arrow').addEventListener('click', function () {
     const othersContent = document.getElementById('others-content');
     const arrow = document.getElementById('toggle-arrow');
-    
-    if (othersContent.style.display === 'none' || othersContent.style.display === '') {
-        othersContent.style.display = 'block';
-        setTimeout(() => {
-            othersContent.classList.add('visible');
-        }, 10); // Small delay to trigger transition effect
+
+    if (!othersContent.classList.contains('visible')) {
+        // Get the full height of the content
+        const contentHeight = othersContent.scrollHeight + "px";
+        
+        // Set the height and make it visible
+        othersContent.style.maxHeight = contentHeight;
+        othersContent.classList.add('visible');
         arrow.classList.replace('fa-caret-down', 'fa-caret-up');
     } else {
+        // Collapse the section
+        othersContent.style.maxHeight = "0";
         othersContent.classList.remove('visible');
-        setTimeout(() => {
-            othersContent.style.display = 'none';
-        }, 500); // Delay hiding until the animation completes
         arrow.classList.replace('fa-caret-up', 'fa-caret-down');
     }
 });
+
 
 
 
