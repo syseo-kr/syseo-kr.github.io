@@ -180,19 +180,19 @@
             margin-left: 20px;
         }
         
-        #others-content {
-            max-height: 0;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(100px);
-            transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
-        }
+#others-content {
+    display: none;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
 
-        #others-content.visible {
-            max-height: 500px; /* Adjust based on content size */
-            opacity: 1;
-            transform: translateY(0);
-        }
+#others-content.visible {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
         
 
@@ -856,14 +856,21 @@ document.getElementById('toggle-arrow').addEventListener('click', function () {
     const othersContent = document.getElementById('others-content');
     const arrow = document.getElementById('toggle-arrow');
     
-    if (!othersContent.classList.contains('visible')) {
-        othersContent.classList.add('visible');
+    if (othersContent.style.display === 'none' || othersContent.style.display === '') {
+        othersContent.style.display = 'block';
+        setTimeout(() => {
+            othersContent.classList.add('visible');
+        }, 10); // Small delay to trigger transition effect
         arrow.classList.replace('fa-caret-down', 'fa-caret-up');
     } else {
         othersContent.classList.remove('visible');
+        setTimeout(() => {
+            othersContent.style.display = 'none';
+        }, 500); // Delay hiding until the animation completes
         arrow.classList.replace('fa-caret-up', 'fa-caret-down');
     }
 });
+
 
 
 
