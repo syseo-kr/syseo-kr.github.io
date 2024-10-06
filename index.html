@@ -180,11 +180,11 @@
             margin-left: 20px;
         }
         
-#others-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-in-out;
-}
+        #others-content {
+            display: none;
+            transition: max-height 0.5s ease;
+            overflow: hidden;
+        }}
 
 
 
@@ -846,27 +846,18 @@ window.addEventListener('load', function () {
 });
 
 
-document.getElementById('toggle-arrow').addEventListener('click', function () {
-    const othersContent = document.getElementById('others-content');
-    const arrow = document.getElementById('toggle-arrow');
-
-    if (!othersContent.classList.contains('visible')) {
-        // Get the full height of the content
-        const contentHeight = othersContent.scrollHeight + "px";
+    document.getElementById('toggle-arrow').addEventListener('click', function () {
+        const othersContent = document.getElementById('others-content');
+        const arrow = document.getElementById('toggle-arrow');
         
-        // Set the height and make it visible
-        othersContent.style.maxHeight = contentHeight;
-        othersContent.classList.add('visible');
-        arrow.classList.replace('fa-caret-down', 'fa-caret-up');
-    } else {
-        // Collapse the section
-        othersContent.style.maxHeight = "0";
-        othersContent.classList.remove('visible');
-        arrow.classList.replace('fa-caret-up', 'fa-caret-down');
-    }
-});
-
-
+        if (othersContent.style.display === 'none') {
+            othersContent.style.display = 'block';
+            arrow.classList.replace('fa-caret-down', 'fa-caret-up');
+        } else {
+            othersContent.style.display = 'none';
+            arrow.classList.replace('fa-caret-up', 'fa-caret-down');
+        }
+    });
 
 
 
